@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>1000</order>
+        <role display_value="x_1862243_training.training user" name="x_1862243_training.training user">9f6f65ee8312721084ade7d0deaad3ad</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 15:54:04</sys_created_on>
+        <sys_id>d36f65ee8312721084ade7d0deaad3b1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>9f6f65ee8312721084ade7d0deaad3ad</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sys_embedded_help_role_d36f65ee8312721084ade7d0deaad3b1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 15:54:04</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>
