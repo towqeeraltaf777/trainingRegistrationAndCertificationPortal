@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($scope, $location) {
+  $scope.openCourse = function (sysId) {
+    $location.url('?id=instructor_details&course_id=' + sysId);
+  };
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Dashboard header */
+.dashboard-header {
+  margin-bottom: 18px;
+}
+
+.dashboard-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #0f172a;
+}
+
+.dashboard-header .subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* Course card */
+.course-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  margin-bottom: 18px;
+
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  border-color: #c7d2fe;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* Header */
+.course-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.course-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Status pill */
+.status-pill {
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+.status-pill.active {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.status-pill.inactive {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+/* Body metrics */
+.course-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.metric .label {
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.metric .value {
+  color: #111827;
+  font-weight: 700;
+}
+
+/* Empty state */
+.empty-state {
+  margin-top: 20px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  color: #475569;
+  font-size: 14px;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>instructor_course_cards</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Instructor Course Cards</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+
+  data.courses = [];
+  var currentUser = gs.getUserID();
+
+  var courseGR = new GlideRecord('x_1862243_training_training_course_table');
+  courseGR.addQuery('instructor', currentUser);
+  courseGR.query();
+
+  while (courseGR.next()) {
+
+    var regAgg = new GlideAggregate('x_1862243_training_training_registration_table');
+    regAgg.addQuery('course', courseGR.sys_id);
+    regAgg.addQuery('registration_status', 'registered');
+    regAgg.addAggregate('COUNT');
+    regAgg.query();
+    regAgg.next();
+
+    data.courses.push({
+      sys_id: courseGR.getUniqueValue(),
+      name: courseGR.getValue('course_name'),
+      status: courseGR.is_active ? 'Active' : 'Inactive',
+      available: parseInt(courseGR.getValue('available_seats'), 10) || 0,
+      registered: parseInt(regAgg.getAggregate('COUNT'), 10) || 0,
+      endDate: courseGR.getDisplayValue('course_end_date')
+    });
+  }
+
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 06:26:55</sys_created_on>
+        <sys_id>e137383a83de721084ade7d0deaad3d3</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>Instructor Course Cards</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_widget_e137383a83de721084ade7d0deaad3d3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 07:12:35</sys_updated_on>
+        <template><![CDATA[<div class="instructor-dashboard">
+
+  <!-- Header -->
+  <div class="dashboard-header">
+    <h3>Instructor Active Cards</h3>
+    <p class="subtitle">Click a course to manage learners and view reports</p>
+  </div>
+
+  <!-- COURSE CARDS -->
+  <div class="row">
+    <div class="col-md-4" ng-repeat="c in data.courses">
+      <div class="course-card"
+           ng-click="openCourse(c.sys_id)">
+
+        <!-- Card Header -->
+        <div class="course-card-header">
+          <div class="course-title">{{c.name}}</div>
+          <span class="status-pill"
+                ng-class="{
+                  'active': c.status === 'Active',
+                  'inactive': c.status === 'Inactive'
+                }">
+            {{c.status}}
+          </span>
+        </div>
+
+        <!-- Card Body -->
+        <div class="course-card-body">
+          <div class="metric">
+            <span class="label">Registered</span>
+            <span class="value">{{c.registered}}</span>
+          </div>
+
+          <div class="metric">
+            <span class="label">Available Seats</span>
+            <span class="value">{{c.available}}</span>
+          </div>
+
+          <div class="metric">
+            <span class="label">End Date</span>
+            <span class="value">{{c.endDate || '—'}}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- EMPTY STATE -->
+  <div class="empty-state" ng-if="data.courses.length === 0">
+    You are not assigned to any courses yet.
+  </div>
+
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

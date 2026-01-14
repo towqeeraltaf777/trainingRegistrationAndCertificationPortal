@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($scope, spUtil, $location, $timeout) {
+	var c = this;
+
+	c.submitting = false;
+	c.success = false;
+	c.error = '';
+
+	c.register = function () {
+
+		if (c.submitting) return;
+
+		c.submitting = true;
+		c.success = false;
+		c.error = '';
+
+		// SAME BINDING STYLE
+		$scope.data.action = 'register';
+		$scope.data.registration = {
+			course: $scope.data.course.sys_id
+		};
+
+		$scope.server.update().then(function (response) {
+			c.submitting = false;
+
+			if (response && response.success) {
+				c.success = true;
+				spUtil.addInfoMessage('You have been successfully registered');
+
+				setTimeout(function () {
+					window.location.href = '?id=user_dashboard';
+				}, 1200);
+			}
+			else {
+				c.error = response.error || 'Registration failed';
+			}
+		});
+	};
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>registration_form_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Registration Form Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+
+    /* ---------------------------
+       Load course details
+    ----------------------------*/
+    var courseId = $sp.getParameter('course_id');
+    data.course = null;
+
+    if (courseId) {
+        var cGR = new GlideRecord('x_1862243_training_training_course_table');
+        if (cGR.get(courseId)) {
+            data.course = {
+                sys_id: cGR.getUniqueValue(),
+                name: cGR.getDisplayValue('course_name'),
+                available: parseInt(cGR.getValue('available_seats'), 10) || 0,
+                max: cGR.getValue('maximum_seats')
+            };
+        }
+    }
+
+	data.isWaitlist = ($sp.getParameter('waitlist') === 'true');
+    data.learner_name = gs.getUserDisplayName();
+
+    /* ---------------------------
+       Handle registration
+    ----------------------------*/
+    if (input && input.action === 'register' && input.registration) {
+
+        // ]]>🔒<![CDATA[ Duplicate check (CRITICAL)
+        var dupGR = new GlideRecord('x_1862243_training_training_registration_table');
+        dupGR.addQuery('course', input.registration.course);
+        dupGR.addQuery('learner', gs.getUserID());
+        dupGR.query();
+
+        if (dupGR.hasNext()) {
+            data.error = "You are already registered for this course.";
+            return;
+        }
+
+        // Validate course
+        var courseGR = new GlideRecord('x_1862243_training_training_course_table');
+        if (!courseGR.get(input.registration.course)) {
+            data.error = "Course not found.";
+            return;
+        }
+
+        var available = parseInt(courseGR.getValue('available_seats'), 10) || 0;
+var isWaitlist = data.isWaitlist === true;
+
+if (available <= 0 && !isWaitlist) {
+    data.error = "No seats available.";
+    return;
+}
+
+
+        // Insert registration
+        var regGR = new GlideRecord('x_1862243_training_training_registration_table');
+        regGR.initialize();
+        regGR.setValue('course', input.registration.course);
+        regGR.setValue('learner', gs.getUserID());
+regGR.setValue('registration_status', isWaitlist ? 'waitlisted' : 'registered');
+        regGR.setValue('certificate_issued', true);
+        regGR.setValue('registration_date', new GlideDate().getValue());
+        regGR.setValue('completion_date', courseGR.getValue('course_end_date'));
+
+
+        var regId = regGR.insert();
+        if (!regId) {
+            data.error = regGR.getLastErrorMessage() || 'Registration failed.';
+            return;
+        }
+
+        // Update available seats
+if (!isWaitlist) {
+    courseGR.setValue('available_seats', available - 1);
+    courseGR.update();
+}
+
+
+        data.success = true;
+        return;
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 13:29:25</sys_created_on>
+        <sys_id>9ee71e3e8396b21084ade7d0deaad314</sys_id>
+        <sys_mod_count>43</sys_mod_count>
+        <sys_name>Registration Form Widget</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_widget_9ee71e3e8396b21084ade7d0deaad314</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 08:41:06</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Course Registration</h3>
+  </div>
+
+  <div class="panel-body">
+
+    <!-- Course Name -->
+    <div class="form-group">
+      <label>Course Name</label>
+      <input type="text"
+             class="form-control"
+             ng-model="data.course.name"
+             placeholder="Select a course first"
+             readonly>
+    </div>
+
+    <!-- Learner -->
+    <div class="form-group">
+      <label>Learner</label>
+      <input type="text"
+             class="form-control"
+             ng-model="data.learner_name"
+             readonly>
+    </div>
+
+    <!-- Seats -->
+    <div class="alert alert-info" ng-if="data.course">
+      Available Seats:
+      <strong>{{data.course.available}}</strong> /
+      {{data.course.max}}
+    </div>
+
+    <div class="alert alert-warning" ng-if="!data.course">
+      Please select a course to enable registration.
+    </div>
+
+    <!-- Register Button -->
+    <button class="btn btn-success btn-lg btn-block"
+            ng-disabled="!data.course ||
+                         !data.course.sys_id ||
+                         c.submitting ||
+                         (!data.isWaitlist && data.course.available <= 0)"
+            ng-click="c.register()">
+      {{ data.isWaitlist ? 'Join Waitlist' : 'Confirm Registration' }}
+    </button>
+
+    <!-- Messages -->
+    <div class="alert alert-success mt-3" ng-if="c.success">
+      Registration successful!
+    </div>
+
+    <div class="alert alert-danger mt-3" ng-if="c.error">
+      {{c.error}}
+    </div>
+
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

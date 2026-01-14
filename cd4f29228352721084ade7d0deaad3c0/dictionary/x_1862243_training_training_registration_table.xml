@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="5c0471a68352721084ade7d0deaad3c4" label="Training Registration Table" max_length="40" name="x_1862243_training_training_registration_table" type="collection">
+        <element label="Certificate Issued" max_length="40" name="certificate_issued" type="boolean"/>
         <element attributes="edge_encryption_enabled=true" label="Completion Date" max_length="40" name="completion_date" type="glide_date"/>
-        <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
-        <element attributes="edge_encryption_enabled=true" choice="3" default="one_star" label="Feedback Rating" max_length="40" name="feedback_rating" type="choice">
-            <choice>
-                <element inactive_on_update="false" label="⭐⭐⭐" value="three_star"/>
-                <element inactive_on_update="false" label="⭐⭐⭐⭐" value="four_star"/>
-                <element inactive_on_update="false" label="⭐⭐" value="two_star"/>
-                <element inactive_on_update="false" label="⭐" value="one_star"/>
-                <element inactive_on_update="false" label="⭐⭐⭐⭐⭐" value="five_star"/>
-            </choice>
-        </element>
         <element attributes="edge_encryption_enabled=true" label="Registration Date" max_length="40" name="registration_date" read_only="true" type="glide_date"/>
-        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
-        <element attributes="edge_encryption_enabled=true" choice="1" default="-none-" label="Registration Status" max_length="40" name="registration_status" read_only="true" type="choice">
+        <element attributes="edge_encryption_enabled=true" choice="3" default="registered" label="Registration Status" max_length="40" name="registration_status" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Waitlisted" sequence="3" value="wait_listed"/>
                 <element inactive_on_update="false" label="Completed" sequence="1" value="completed"/>
@@ -21,9 +11,19 @@
                 <element inactive_on_update="false" label="Cancelled" sequence="0" value="cancelled"/>
             </choice>
         </element>
-        <element attributes="encode_utf8=false" label="Course Name" mandatory="true" max_length="32" name="course_name" reference="x_1862243_training_training_course_table" type="reference"/>
-        <element label="Certificate Issued" max_length="40" name="certificate_issued" type="boolean"/>
         <element attributes="encode_utf8=false" label="Learner" mandatory="true" max_length="32" name="learner" reference="sys_user" type="reference"/>
+        <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="encode_utf8=false" label="Course Name" mandatory="true" max_length="32" name="course_name" reference="x_1862243_training_training_course_table" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="one_star" label="Feedback Rating" max_length="40" name="feedback_rating" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="⭐⭐" value="two_star"/>
+                <element inactive_on_update="false" label="⭐" value="one_star"/>
+                <element inactive_on_update="false" label="⭐⭐⭐⭐⭐" value="five_star"/>
+                <element inactive_on_update="false" label="⭐⭐⭐" value="three_star"/>
+                <element inactive_on_update="false" label="⭐⭐⭐⭐" value="four_star"/>
+            </choice>
+        </element>
         <index name="index">
             <element name="course_name"/>
         </index>

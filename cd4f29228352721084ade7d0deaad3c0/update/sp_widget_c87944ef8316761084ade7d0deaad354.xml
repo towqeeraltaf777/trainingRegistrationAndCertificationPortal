@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Container Spacing */
+.content-wrapper {
+  padding: 30px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Header Styling */
+.header-section {
+  margin-bottom: 40px;
+}
+
+.header-section h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.intro-text {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* Grid Layout */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Card Styling */
+.feature-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #3b82f6;
+}
+
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>html_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>HTML widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 11:02:23</sys_created_on>
+        <sys_id>c87944ef8316761084ade7d0deaad354</sys_id>
+        <sys_mod_count>29</sys_mod_count>
+        <sys_name>HTML widget</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_widget_c87944ef8316761084ade7d0deaad354</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 14:47:36</sys_updated_on>
+        <template><![CDATA[<style>
+/* Sidebar Container */
+.app-sidebar {
+  background: #0f172a;
+  padding: 24px 16px;
+  min-height: 95vh;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+/* Title at top */
+.app-sidebar::before {
+  content: "TRAINING PORTAL";
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #60a5fa;
+  letter-spacing: 1.5px;
+  margin-bottom: 30px;
+  padding-left: 10px;
+  border-left: 3px solid #3b82f6;
+}
+
+/* Base Link Styling */
+.app-sidebar a, 
+.app-sidebar .btn {
+  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #e2e8f0 !important;
+  padding: 14px 16px 14px 48px !important; /* Space for the emoji */
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-decoration: none !important;
+}
+
+/* --- DISTINCT EMOJIS FOR EACH ROLE --- */
+
+/* 1st Button: ADMIN (Shield/Gear) */
+.app-sidebar a:nth-of-type(1)::before,
+.app-sidebar .btn:nth-of-type(1)::before {
+  content: "]]>🛡<![CDATA[️"; 
+  position: absolute;
+  left: 18px;
+  font-size: 18px;
+}
+
+/* 2nd Button: INSTRUCTOR (Teacher/Presentation) */
+.app-sidebar a:nth-of-type(2)::before,
+.app-sidebar .btn:nth-of-type(2)::before {
+  content: "]]>👨<![CDATA[‍]]>🏫<![CDATA["; 
+  position: absolute;
+  left: 18px;
+  font-size: 18px;
+}
+
+/* 3rd Button: USER (Student/Graduate) */
+.app-sidebar a:nth-of-type(3)::before,
+.app-sidebar .btn:nth-of-type(3)::before {
+  content: "]]>🎓<![CDATA["; 
+  position: absolute;
+  left: 18px;
+  font-size: 18px;
+}
+
+/* HOVER EFFECTS */
+.app-sidebar a:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: translateX(6px);
+  color: #ffffff !important;
+}
+
+/* Role-specific hover glow */
+.app-sidebar a:nth-of-type(1):hover { border-color: #a78bfa !important; box-shadow: 0 0 15px rgba(167, 139, 250, 0.2); }
+.app-sidebar a:nth-of-type(2):hover { border-color: #4ade80 !important; box-shadow: 0 0 15px rgba(74, 222, 128, 0.2); }
+.app-sidebar a:nth-of-type(3):hover { border-color: #3b82f6 !important; box-shadow: 0 0 15px rgba(59, 130, 246, 0.2); }
+</style>
+
+<div class="content-wrapper">
+  <div class="header-section">
+    <h1>Training Registration Portal</h1>
+    <p class="intro-text">
+      A centralized platform for managing training programs, instructor assignments, 
+      and certification tracking with real-time transparency.
+    </p>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="card-icon">]]>📚<![CDATA[</div>
+      <h3>Courses & Training</h3>
+      <p>Browse available programs, view details, and register for upcoming sessions.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="card-icon">]]>📝<![CDATA[</div>
+      <h3>Registrations</h3>
+      <p>Manage seat availability and automated waitlists for high-demand trainings.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="card-icon">]]>👨<![CDATA[‍]]>🏫<![CDATA[</div>
+      <h3>Instructors</h3>
+      <p>Assign subject matter experts and track delivery performance metrics.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="card-icon">]]>🎓<![CDATA[</div>
+      <h3>Certifications</h3>
+      <p>Track completed learning paths and maintain a digital history of achievements.</p>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>
