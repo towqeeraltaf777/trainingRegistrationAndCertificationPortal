@@ -1,0 +1,1158 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=150624000,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>26000</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>training__daily_course_reminder</internal_name>
+        <label_cache>[{"name":"143d1295-740b-47de-a637-823c32281578.item.completion_date","label":"2 - For Each➛Training Registration Table Record➛Completion Date","reference":"","reference_display":"Completion Date","type":"glide_date","base_type":"glide_date","parent_table_name":"x_1862243_training_training_registration_table","column_name":"completion_date","usedInstances":{"5796fc3c-cac3-434c-804b-1e181ca0afcb":[null]}},{"name":"143d1295-740b-47de-a637-823c32281578.item.learner.first_name","label":"2 - For Each➛Training Registration Table Record➛Learner➛First name","reference":"","reference_display":"First name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"first_name","usedInstances":{"5796fc3c-cac3-434c-804b-1e181ca0afcb":[null]}},{"name":"7c1c1f57-767c-48bd-ab1f-83d8003857cf.Record.course_name","label":"3 - Look Up Record➛Training Course Table Record➛Course Name","reference":"","reference_display":"Course Name","type":"string","base_type":"string","parent_table_name":"x_1862243_training_training_course_table","column_name":"course_name","usedInstances":{"5796fc3c-cac3-434c-804b-1e181ca0afcb":["ah_subject",null]}},{"name":"143d1295-740b-47de-a637-823c32281578.item.learner.email","label":"2 - For Each➛Training Registration Table Record➛Learner➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email","usedInstances":{"5796fc3c-cac3-434c-804b-1e181ca0afcb":["ah_to"]}},{"name":"143d1295-740b-47de-a637-823c32281578.item","label":"2 - For Each➛Training Registration Table Record","reference":"x_1862243_training_training_registration_table","reference_display":"Training Registration Table","type":"reference","base_type":"reference","usedInstances":{"5796fc3c-cac3-434c-804b-1e181ca0afcb":["record"]},"attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}},{"name":"7c1c1f57-767c-48bd-ab1f-83d8003857cf.Record.is_active","label":"3 - Look Up Record➛Training Course Table Record➛Active","reference":"","reference_display":"Active","type":"boolean","base_type":"boolean","parent_table_name":"x_1862243_training_training_course_table","column_name":"is_active","usedInstances":{"26715328-99da-47f9-99ec-529a506e0204":["condition"]}},{"name":"7c1c1f57-767c-48bd-ab1f-83d8003857cf.Record.course_start_date","label":"3 - Look Up Record➛Training Course Table Record➛Course Start Date","reference":"","reference_display":"Course Start Date","type":"glide_date","base_type":"glide_date","parent_table_name":"x_1862243_training_training_course_table","column_name":"course_start_date","usedInstances":{"26715328-99da-47f9-99ec-529a506e0204":["condition"]}},{"name":"143d1295-740b-47de-a637-823c32281578.item.course_name.sys_id","label":"2 - For Each➛Training Registration Table Record➛Course Name➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"x_1862243_training_training_course_table","column_name":"sys_id","usedInstances":{"7c1c1f57-767c-48bd-ab1f-83d8003857cf":["conditions"]}},{"name":"6be9162d-d301-45c3-b2f3-f8a79e98c668.Records","label":"1 - Look Up Records➛Training Registration Table Records","reference":"x_1862243_training_training_registration_table","reference_display":"Training Registration Table","type":"records","base_type":"records","usedInstances":{"143d1295-740b-47de-a637-823c32281578":["items"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"02a53c25-4bd6-4f45-bf2a-b82beafb9d4b.Record.course_name","label":"1 - Look Up Record➛Training Course Table Record➛Course Name","reference":"","reference_display":"Course Name","type":"string","base_type":"string","parent_table_name":"x_1862243_training_training_course_table","column_name":"course_name","usedInstances":{"2f2a2658-788d-4c23-a0d1-f31c4a6a9c3a":["ah_subject",null]}},{"name":"8754ed8c-abbf-4adb-8c50-6af3cbac1a79.Record.learner.email","label":"2 - Look Up Record➛Training Registration Table Record➛Learner➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email","usedInstances":{"2f2a2658-788d-4c23-a0d1-f31c4a6a9c3a":["ah_to"]}},{"name":"8754ed8c-abbf-4adb-8c50-6af3cbac1a79.Record","label":"2 - Look Up Record➛Training Registration Table Record","reference":"x_1862243_training_training_registration_table","reference_display":"Training Registration Table","type":"reference","base_type":"reference","usedInstances":{"2f2a2658-788d-4c23-a0d1-f31c4a6a9c3a":["record"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"02a53c25-4bd6-4f45-bf2a-b82beafb9d4b.Table","label":"1 - Look Up Record➛Training Course Table Table","reference":"x_1862243_training_training_course_table","reference_display":"Training Course Table","type":"table_name","base_type":"table_name","usedInstances":{"a6ef1510-9b59-4de7-bfc1-5a1e91dbced7":["table"],"16bafa86-a32d-4d8a-85e5-245ae8ce4093":["table"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","filter_table_source":"v_cluster_transaction"}},{"name":"22fbb3e5-4f18-47ea-ac71-75deebc2801d.item.learner.first_name","label":"4 - For Each➛Training Registration Table Record➛Learner➛First name","reference":"","reference_display":"First name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"first_name","usedInstances":{"ad9d7ec6-ea48-4659-a41d-a76398544f72":[null]}},{"name":"22fbb3e5-4f18-47ea-ac71-75deebc2801d.item.learner.email","label":"4 - For Each➛Training Registration Table Record➛Learner➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email","usedInstances":{"ad9d7ec6-ea48-4659-a41d-a76398544f72":["ah_to"]}},{"name":"22fbb3e5-4f18-47ea-ac71-75deebc2801d.item.course_name","label":"4 - For Each➛Training Registration Table Record➛Course Name","reference":"x_1862243_training_training_course_table","reference_display":"Training Course Table","type":"reference","base_type":"reference","parent_table_name":"x_1862243_training_training_registration_table","column_name":"course_name","usedInstances":{"ad9d7ec6-ea48-4659-a41d-a76398544f72":["record"]}},{"name":"bb0b1604-e250-4acc-aac6-8aaab61fe073.Records","label":"3 - Look Up Records➛Records","reference_display":"Records","type":"records","base_type":"records","usedInstances":{"22fbb3e5-4f18-47ea-ac71-75deebc2801d":["items"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Daily_1.run_start_date_time","label":"Trigger - Run Daily ➛Run Start Date/Time","type":"glide_date_time","base_type":"glide_date_time","usedInstances":{"02a53c25-4bd6-4f45-bf2a-b82beafb9d4b":["conditions"],"7b558a5f-f469-4214-8c83-a44490d03d8c":["conditions"],"26715328-99da-47f9-99ec-529a506e0204":["condition"]},"attributes":{"test_input_hidden":"true"}},{"name":"02a53c25-4bd6-4f45-bf2a-b82beafb9d4b.Record.course_start_date","label":"1 - Look Up Record➛Training Course Table Record➛Course Start Date","reference":"","reference_display":"Course Start Date","type":"glide_date","base_type":"glide_date","parent_table_name":"x_1862243_training_training_course_table","column_name":"course_start_date","usedInstances":{"bddbadf7-ed50-495e-9c00-f16e3e45c83e":["conditions"]}},{"name":"02a53c25-4bd6-4f45-bf2a-b82beafb9d4b.Record.course_end_date","label":"1 - Look Up Record➛Training Course Table Record➛Course End Date","reference":"","reference_display":"Course End Date","type":"glide_date","base_type":"glide_date","parent_table_name":"x_1862243_training_training_course_table","column_name":"course_end_date","usedInstances":{"bddbadf7-ed50-495e-9c00-f16e3e45c83e":["conditions"]}},{"name":"8754ed8c-abbf-4adb-8c50-6af3cbac1a79.Record.learner.first_name","label":"2 - Look Up Record➛Training Registration Table Record➛Learner➛First name","reference":"","reference_display":"First name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"first_name","usedInstances":{"2f2a2658-788d-4c23-a0d1-f31c4a6a9c3a":[null]}},{"name":"8754ed8c-abbf-4adb-8c50-6af3cbac1a79.Record.completion_date","label":"2 - Look Up Record➛Training Registration Table Record➛Completion Date","reference":"","reference_display":"Completion Date","type":"glide_date","base_type":"glide_date","parent_table_name":"x_1862243_training_training_registration_table","column_name":"completion_date","usedInstances":{"2f2a2658-788d-4c23-a0d1-f31c4a6a9c3a":[null]}}]</label_cache>
+        <master_snapshot>978f824bc3d6f21056c9f8cc050131fd</master_snapshot>
+        <master_snapshot_digest/>
+        <name>Training – Daily Course Reminder</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id>df8fc24bc3d6f21056c9f8cc05013135</remote_trigger_id>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 16:10:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e3bc7a32c31ab21056c9f8cc0501317d</sys_id>
+        <sys_mod_count>52</sys_mod_count>
+        <sys_name>Training – Daily Course Reminder</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sys_hub_flow_e3bc7a32c31ab21056c9f8cc0501317d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 10:01:09</sys_updated_on>
+        <type>flow</type>
+        <version>2</version>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=e3bc7a32c31ab21056c9f8cc0501317d"/>
+    <sys_variable_value action="delete_multiple" query="document_key=e3bc7a32c31ab21056c9f8cc0501317d"/>
+    <sys_flow_timer_trigger action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <day_of_month>1</day_of_month>
+        <day_of_week/>
+        <name/>
+        <run_period/>
+        <run_start>2026-01-12 07:31:22</run_start>
+        <sys_class_name>sys_flow_timer_trigger</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 07:31:22</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>df8fc24bc3d6f21056c9f8cc05013135</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 10:01:08</sys_updated_on>
+        <time>1970-01-01 17:00:00</time>
+        <timer_type>11</timer_type>
+    </sys_flow_timer_trigger>
+    <sys_flow_trigger_auto_script action="delete_multiple" query="name=Trigger:df8fc24bc3d6f21056c9f8cc05013135^sys_idNOT IN5b8fc24bc3d6f21056c9f8cc05013136"/>
+    <sys_flow_trigger_auto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <business_calendar/>
+        <condition/>
+        <conditional>false</conditional>
+        <entered_time/>
+        <max_drift/>
+        <name>Trigger:df8fc24bc3d6f21056c9f8cc05013135</name>
+        <offset/>
+        <offset_type>0</offset_type>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek/>
+        <run_period/>
+        <run_start>2026-01-12 07:31:22</run_start>
+        <run_time>1970-01-01 17:00:00</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[sn_flow_trigger.FlowTriggerAPI.fireTimerTrigger('df8fc24bc3d6f21056c9f8cc05013135');]]></script>
+        <sys_class_name>sys_flow_trigger_auto_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 07:31:22</sys_created_on>
+        <sys_id>5b8fc24bc3d6f21056c9f8cc05013136</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 10:01:08</sys_updated_on>
+        <time_zone/>
+        <trigger display_value="">df8fc24bc3d6f21056c9f8cc05013135</trigger>
+        <upgrade_safe>true</upgrade_safe>
+    </sys_flow_trigger_auto_script>
+    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=e3bc7a32c31ab21056c9f8cc0501317d"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=e3bc7a32c31ab21056c9f8cc0501317d"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=e3bc7a32c31ab21056c9f8cc0501317d^sys_idNOT INa7bc7a32c31ab21056c9f8cc05013180"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>e3bc7a32c31ab21056c9f8cc0501317d</id>
+        <name>Training – Daily Course Reminder</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 16:10:20</sys_created_on>
+        <sys_id>a7bc7a32c31ab21056c9f8cc05013180</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-11 16:10:20</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=a7bc7a32c31ab21056c9f8cc05013180"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=e3bc7a32c31ab21056c9f8cc0501317d"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=e3bc7a32c31ab21056c9f8cc0501317d"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=e3bc7a32c31ab21056c9f8cc0501317d"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=e3bc7a32c31ab21056c9f8cc0501317d^sys_idNOT INe4a2b247c39af21056c9f8cc0501310d"/>
+    <sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE">
+        <comment>Trigger will start everyday 9AM</comment>
+        <display_text/>
+        <flow display_value="Training – Daily Course Reminder">e3bc7a32c31ab21056c9f8cc0501317d</flow>
+        <name>Daily</name>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 10:04:39</sys_created_on>
+        <sys_id>e4a2b247c39af21056c9f8cc0501310d</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 10:00:29</sys_updated_on>
+        <trigger_definition display_value="Daily">89142dc0c32222002841b63b12d3ae8a</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/21STUvEMBD9K5LzWtJdP3sTZMGDCipeRMo0me4GpklM09Uq/ncnbVxULLnMm5k37z369CEIGiRRiQfToVgIYyMGC/QwemR0Q0ZjHedeB1ZDdGEUVQwDLoQLGoOoSikXYgc04P3YX2le42ELXSLIq1OXy/L8VB7Kkt+BPK+k5MddD4GnY+L6EGprSAe0onp6Zj2JbgX6CLWSarXkT8rl2VHZnKyacqlXgHjMFH9s/L4e/zHzUzu+RbQa+VQL1OM/TgOCvrU07ie2HNRstIO33rxjpgrYIotXODf3Za1N7wnGGVZbZxTe+micnZEIDeUd5Wjo7M3sgGuNLQwUH3OEjAw986FPmpOKLKm937rXu++Da2Mng7lJTgHtK4gxmGaI2KfEkbBjoroD743d1D64nZmWWUtXTLEVLblXPtqbjS1AJeEFRwTFmvHLCX6EYJKLa6bh5c/Jff0ypLuzj6y4nk3zQA5lbZDyb9OrYHy84AM7zHI/n78AKJFQK6cCAAA=</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>daily</trigger_type>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=e3bc7a32c31ab21056c9f8cc0501317d^sys_idNOT IN0918f31bc392761056c9f8cc0501317a,0d18f31bc392761056c9f8cc05013176,0d18f31bc392761056c9f8cc0501318a"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Look Up Record">9d09f99587003300663ca1bb36cb0ba3</action_type>
+        <action_type_parent display_value="Look Up Record">b93f42810b30030085c083eb37673a63</action_type_parent>
+        <attributes/>
+        <comment>accesses the course from the course table using sys id.</comment>
+        <compiled_snapshot>9d09f99587003300663ca1bb36cb0ba3</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Training – Daily Course Reminder">e3bc7a32c31ab21056c9f8cc0501317d</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id>143d1295-740b-47de-a637-823c32281578</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:32</sys_created_on>
+        <sys_id>0918f31bc392761056c9f8cc0501317a</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 17:00:02</sys_updated_on>
+        <ui_id>7c1c1f57-767c-48bd-ab1f-83d8003857cf</ui_id>
+        <values>H4sIAAAAAAAA/+VYXY/aOhD9K1GegZsvSNi3q10hVertSl1uX9rKcmJnsWqc1HH2C/Hf7zh2AEEWiC4r7apv2B57zsycM3b4vnIZca9cMvWm+XQ6TmLPC0PPm0zCDPtpGk6y1Etx5A5cgZcULBVOOYXhA+a1Hj8hP5kEQRQiJTETTNxvf2RFLSuK2i2EVSXHz9/szrk1c64bM2duzbIF40RS4V59/zlwSyzBsaLSvVrtLZ2LnOOUcu3QOtiLRD2XmyFq1szc591tzhezUEiioXgDlz4pKggFDDnmFR24SywIVoV83sxIismt4NuJBRMKTnS18VPFXsBv4mm7nEJUGTVrmyGyGTPT+Q1W+E7JOlO1tKbZomAZrUw+CM1xzdX17pwxuC0VK4TZYsI2uwteL8UXkw53c0BbIJipoXyEljpQjdyGkd8tisevLcoZE01O7CIvMsw3I6yUZGmtNJ6VSzldwkFoictSE6SUxQNrNgOW5eiew2CU8+IRnFbsXoxwpoGPIK94NIP5m2b6G5ZMR/EPHAObARDjwBBDNFQBnZpUPqCM11WzILGozFnueuBWz9U1x1W1jRxSjn7XGrfJg40YmaTpLZlkpfobjnigNrj1oBXP+CgFp1vKZYUgTKOodhQEaBAjP2rYTFYrPwqJH0zHwzjy0mEUEzrEkzAeJkGYhUGQ+OM4GTFFlyOrLn30yJyxXh+q7MKn9xTn6cy04rzeTU1XuqxMD+Y+dx1gZepfTKaR530koYLz96fT/sozKTghP58cJRnZ8qkqpEImlzv6O9RMb56fAaHl+a1mppM+v4bK0jxnlJOu22imF/Zuo+DPvI3eJckBEEGmekxwJpqnBQB9K/aPj1Iv9fd41tBr5+7Rc7jKDjWAHVU4L72VcAacVgl34NuZGzwdENt+31Bmv9e3k1YA4cUEEAaXEcBqE+YmkR05b1+Tupqt/Yu2x/v2QMGdDf66S2C9fPp9fQbrQwGHvRS8SzazcvMK5y787HxFkYO3bAEL2Gr9IaNf9MjIPVVb760VKdQj5r+61i3jUFuoJrw3eML6R7+i0p0nLMvREirHSnhpS5oBOSqEJUV5UQuC7Bt7SyRdyZzJSlnjw0bzlYJ+hFOAMB21oE5j7Wyse17Ep+NoU/kpd9pArLfKgUCcJhBnE0i/sPs0reiCj9NLN60ZZrypBnw+lTvlpFIW8pXGdaKQRxhxZlc7E5R/UVD/v+11SaCz/Z3A+iG+xS/fmjKK0yjAkzj0fc/zPRJ7SRz7ySTNJziO8q1GEapEBt0UTs6BKnA8aqnR1tk77D+mpfZtNGegail4Uwj9+R3EytGwoL5OC+s0cNtQ0qLgFIu9jjKHe+KvmcVv+Tp+d13lQ/wzVbP5fqbNVGeu3+rdULN/Bftd00+aYgn1gsQn2TCJ/XgY5WQynBI8HuJpOo5DQrMov+RT4Od/SbheugwWAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=0918f31bc392761056c9f8cc0501317a"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent display_value="Look Up Records">d1c56ec50b30030085c083eb37673a50</action_type_parent>
+        <attributes/>
+        <comment>checks registration status is registered in every recod.</comment>
+        <compiled_snapshot>43400a1587003300663ca1bb36cb0b4b</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Training – Daily Course Reminder">e3bc7a32c31ab21056c9f8cc0501317d</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:32</sys_created_on>
+        <sys_id>0d18f31bc392761056c9f8cc05013176</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 17:00:02</sys_updated_on>
+        <ui_id>6be9162d-d301-45c3-b2f3-f8a79e98c668</ui_id>
+        <values>H4sIAAAAAAAA/+VX22rjMBD9leBnE+w4TbN9W1oKC71AW/rSLUK25USsInslOZeG/PuOLMn2Jm43gQRa9i2ai+bM6BxZeVl7NPUuvHE2DAIcno3PgyCKgmA0ihIcxnE0SuIgHsae73E8IxCpcMwILOeYlXq9ROF4NBgMI6QEppzySfNDkAmVsFI058glplQWDK+ebf6TDe49tIJ7TzY4mVKWCsK9i5dX3yuwABCKCO9iveXatwuGY8J0WVtgqyu1KuolqnzGdtNO690ZRy5SDSXwPbJUhKcEMGSYSeJ7M8xTrHKxqi2C4PSes8YwpVzBjp4OXkr6BnXHgY7LCHSVEOOrl8jOzZizK6zwoxJlokphQ5NpThMizTxSkuGSqcu2zQTcF3rCJsW0bbJzVs74nRmHV2/gjgkspQQQpNCNauS2jexxmi8eHMpryquZWCfLE8zqFVZK0LhUGs/aI4zMYCM0w0WhyVKIfE6rZMAy608YLPoZyxdQVNIJ7+NEA+/DXHH/GuxXlfkZC6q7uIVtIBkAUQYMMXRDMi9FNco5SlgpK4fAXJq9vI3vyZW8ZFjKpnMYOfpdatxmDrZjZIamUxJBC/UdtpgT29zG30tIZ0FDuSTnKdUoZEtNfylGKqxK+bOEnVLjgCGnuxLaL+mYUqr6cFK6bDfS1ZwV1Y7tpmsDK6rwaKKCPr6SrKD451PV4ToxI/iHWJLzD0l21vBJ5kIhM8uWWnalcDDP94DgeH6vmdmLV++hsjTPKGFp17fjWju2vh2D//Pb8SlJDoBSZE6PckZ59RAAoKdif/DxFftti2cVvRruVzYsk10N4J7Ke28HK2EPOE4Jj1C792TwdEB0931Fme273hmtAKKjCSAaHEcA67rNepAdM3dvP32aLv5Nx+PteKBgKyHcdAnsoJrhoTUHm10BRwcpuE0247l6h3NHfiS+o0j/lFfAFFJtPWT0ixY0nRDVVHdRaa4WmP3q8lvGIXdQVXsneHAOP5TtKGwkCkqBf2QSDq/94gzhebR7h4S+MR92heyBxY3jFi/hH58D04nQXiOgdDKpzqZ9j/yorZbkwyM+GD/tl9QdVqcG3Zl9if9pxxPC6x8Aa6KUxBAAAA==</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=0d18f31bc392761056c9f8cc05013176"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Send Email">c1806bf4a70323008299b39f087901cb</action_type>
+        <action_type_parent display_value="Send Email">98c181d20b100300d97d8bf637673ab5</action_type_parent>
+        <attributes/>
+        <comment>Email sent to Learner.</comment>
+        <compiled_snapshot>c1806bf4a70323008299b39f087901cb</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Training – Daily Course Reminder">e3bc7a32c31ab21056c9f8cc0501317d</flow>
+        <generation_source/>
+        <order>5</order>
+        <parent_ui_id>26715328-99da-47f9-99ec-529a506e0204</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:32</sys_created_on>
+        <sys_id>0d18f31bc392761056c9f8cc0501318a</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 17:00:02</sys_updated_on>
+        <ui_id>5796fc3c-cac3-434c-804b-1e181ca0afcb</ui_id>
+        <values>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</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=0d18f31bc392761056c9f8cc0501318a"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=e3bc7a32c31ab21056c9f8cc0501317d"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=e3bc7a32c31ab21056c9f8cc0501317d^sys_idNOT INc518f31bc392761056c9f8cc0501317b,c918f31bc392761056c9f8cc05013178"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">cd18f31bc392761056c9f8cc0501317a</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Training – Daily Course Reminder">e3bc7a32c31ab21056c9f8cc0501317d</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>4</order>
+        <outputs_assigned/>
+        <parent_ui_id>143d1295-740b-47de-a637-823c32281578</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:32</sys_created_on>
+        <sys_id>c518f31bc392761056c9f8cc0501317b</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 10:00:44</sys_updated_on>
+        <ui_id>26715328-99da-47f9-99ec-529a506e0204</ui_id>
+        <values>H4sIAAAAAAAA/+1VTU/jMBD9K1HObZQ0pC29oUVIK+2CFhCXhY0m9oRaOHbWdoBu1P++4yQtFRSxnzdu9ZvxzHvjyWsb6sbVjbOX+shacavCxdebUSiUx+h3GyqoMFyETCsunNAq74BReA+y6QJLZHdC3QbbDLsYB0fMiXsMhA2caTAAxSneGIuBdWBcwMF1Ua0CbYICS20wcJrDikpzYWsJq6v/14EtheQGB7U1GNLk0ISL9lnIrWrMJRQoiciFM0SDrgtOpzKGMjlkCUsn03QSx5P5QVJM0yKZ8BQQUsrbXPywIR586pDRq1P1/Qi3m07acE8riUchPjpUHKl1CdLiKKxIMzhtVlvEIPAzJZ+ApVCOyoU++dGKH1R7kmU+sUTSyLAPbo/5MPoeZkstGJ7VnmCPOCjkcIdp2VTqtNfhHw1LaKTbPBohjaV6WHvSnsVAqbxY6ofzTcMToTqBQ1BqBnJ7AkdjKBqH1j8MSqyoUF5BXdNw8troe9FdJi5VdCvpEJVSP1BTv8kRME88ohlBdEL4cQdfgRFexWcqQ5d7mgVYwfJu66mcX6hw3Y0l/954Qr3AQUreT4MSLDOidv0mDqzXo5efzM7X0rYz2pikzGbj2XTGxgfzgo+hSMrxPOXzOE7n2YyV0TkyevmoX+i8W+jcL/R6fXbatscg5CpPItOonVjuREUJ306//HWT64aS2FuNfq+NsDl0gxrK827KLz729wE9H9C/8KpDyMosibP9XnUw3edVe1zqdYOavGFQXssv+lMcx+8GtWtQtBi90QzauuZ/7E833oz6DrbfG45MWCJy6bGPm39+H1jRAgi2Cz1oc+clPGHrn1VjAhVDCAAA</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">8d18f31bc392761056c9f8cc05013177</block>
+        <comment>Loops every record in registration table</comment>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Training – Daily Course Reminder">e3bc7a32c31ab21056c9f8cc0501317d</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:32</sys_created_on>
+        <sys_id>c918f31bc392761056c9f8cc05013178</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 10:00:43</sys_updated_on>
+        <ui_id>143d1295-740b-47de-a637-823c32281578</ui_id>
+        <values>H4sIAAAAAAAA/51STW/bMAz9Lzonhj86L86twFCgh61AV/QyFAYt0YkwWdIkOaln+L+PipVs6HEnm4/k43siZ2bGYMfgX8y99/Kg2f7H24ZJHTH6n5mGAdmeyYCDZxt2AjXGeJ7rDpuiLsVWVHmxvfvEq21X9tW238HnBpsdr+td9ozcOOGXhVqF9FbB9Pr/DPwolXCYRFpwpC2gY/v5QypMFlsFHSoalBioXwoKi0b0TZE3vCrrqszzcndXdHXVFaWoAEVNddfOx2T6wxtEdgrdjZc+UUWZbxi+B9QCaVAPyuOGDaAFBOMmtg9uJMAhiCetplvFUepAdCzWvnv5m7iLPI+FPZIjjmvyFrbpIVeYH43k+GSDNHpFAnQq9XCjxkF/W+XHFWAPowrXFRAyeuJDGzVHFUlS//1ozs/XgQ9SX/ylpDIc1C2CEJzsxoA+rgEVDkTUDmCt1IfWOnOSl2bSMmQHRUHWK3OmofHcMuBReEZPBNkD4V8u8Cs4GV18JRpqXi7u219jnLv6SIrb1TQVeO6kDfdEd8IkbnmL97oy+fUwBHLpaeBLxB6vVx4TEy1Z8n+hs3E/o9S/2PIH1nVHXC8DAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=e3bc7a32c31ab21056c9f8cc0501317d^sys_idNOT IN007c8b53c3de361056c9f8cc050131d0,0918f31bc392761056c9f8cc05013191,1caa4c5fc312361056c9f8cc05013162,32f6d79fc3de361056c9f8cc050131cc,3ce03fdfc352761056c9f8cc05013162,3d2e5ffac39ab21056c9f8cc050131a6,4518f31bc392761056c9f8cc05013191,4c7c8b53c3de361056c9f8cc050131cf,58aa4c5fc312361056c9f8cc05013162,792e5ffac39ab21056c9f8cc050131a7,847c8b53c3de361056c9f8cc050131cf,8d18f31bc392761056c9f8cc05013190,b0e03fdfc352761056c9f8cc05013163,b52e5ffac39ab21056c9f8cc050131a7,b6f6d79fc3de361056c9f8cc050131cc,dcaa4c5fc312361056c9f8cc05013162,f12e5ffac39ab21056c9f8cc050131a7,f2f6d79fc3de361056c9f8cc050131cc,fce03fdfc352761056c9f8cc05013162"/>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.completion_date}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 06:35:52</sys_created_on>
+        <sys_id>007c8b53c3de361056c9f8cc050131d0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 06:35:52</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>fa94f21d-1c22-4b14-aed1-af0f96491d36</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{143d1295-740b-47de-a637-823c32281578.item.completion_date}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:32</sys_created_on>
+        <sys_id>0918f31bc392761056c9f8cc05013191</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 09:46:32</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>9594d391-e7b6-48a3-8c23-616fc4d07b81</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{02a53c25-4bd6-4f45-bf2a-b82beafb9d4b.Record.course_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 16:29:06</sys_created_on>
+        <sys_id>1caa4c5fc312361056c9f8cc05013162</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 16:29:06</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>a314a24e-5072-4168-9198-37fd911784ce</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.learner}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 07:21:56</sys_created_on>
+        <sys_id>32f6d79fc3de361056c9f8cc050131cc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 07:21:56</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>0875f20e-2a72-4250-9676-1f2a50366664</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.course_name.course_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:15:07</sys_created_on>
+        <sys_id>3ce03fdfc352761056c9f8cc05013162</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 09:15:07</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>52d97a40-9234-4bea-a2a2-b7e224f91bb5</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{22fbb3e5-4f18-47ea-ac71-75deebc2801d.item.learner.first_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 18:36:18</sys_created_on>
+        <sys_id>3d2e5ffac39ab21056c9f8cc050131a6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-11 18:36:18</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>cc1ffc00-50f6-400a-8a7b-f5efcf7920c3</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{7c1c1f57-767c-48bd-ab1f-83d8003857cf.Record.course_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:32</sys_created_on>
+        <sys_id>4518f31bc392761056c9f8cc05013191</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 09:46:32</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>c2e0d251-992c-4e04-8b60-d07628644293</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.course_name.course_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 06:35:52</sys_created_on>
+        <sys_id>4c7c8b53c3de361056c9f8cc050131cf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 06:35:52</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>44cc370a-3056-4dee-a92f-e315f3c5694c</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{8754ed8c-abbf-4adb-8c50-6af3cbac1a79.Record.learner.first_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 16:29:06</sys_created_on>
+        <sys_id>58aa4c5fc312361056c9f8cc05013162</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 16:29:06</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>e70e62cf-e3b9-40da-be99-65604edf4690</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{d7669a5a-97f4-4856-93f0-73411a7ea869.item.course_start_date}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 18:36:18</sys_created_on>
+        <sys_id>792e5ffac39ab21056c9f8cc050131a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-11 18:36:18</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>586a96a4-91b3-4ef9-95dd-cab6a1ec2ec0</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.learner.first_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 06:35:52</sys_created_on>
+        <sys_id>847c8b53c3de361056c9f8cc050131cf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 06:35:52</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>22936c9c-81b1-4094-8975-fba9cde5b770</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{143d1295-740b-47de-a637-823c32281578.item.learner.first_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:32</sys_created_on>
+        <sys_id>8d18f31bc392761056c9f8cc05013190</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 09:46:32</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>428f1392-f605-49a1-97cb-2a0790a4297c</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.learner}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:15:07</sys_created_on>
+        <sys_id>b0e03fdfc352761056c9f8cc05013163</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 09:15:07</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>42dd9d0c-ef76-4639-9c4d-55b5742014eb</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{d7669a5a-97f4-4856-93f0-73411a7ea869.item.location}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 18:36:18</sys_created_on>
+        <sys_id>b52e5ffac39ab21056c9f8cc050131a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-11 18:36:18</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>384526aa-13a7-4d2d-8feb-c0b50f80236a</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.completion_date}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 07:21:56</sys_created_on>
+        <sys_id>b6f6d79fc3de361056c9f8cc050131cc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 07:21:56</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>a797c993-1d97-4b1d-afc1-b0f798b34c10</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{8754ed8c-abbf-4adb-8c50-6af3cbac1a79.Record.completion_date}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 16:29:06</sys_created_on>
+        <sys_id>dcaa4c5fc312361056c9f8cc05013162</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 16:29:06</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>ed577de3-52be-4e9e-8656-f32f1cbe5729</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{d7669a5a-97f4-4856-93f0-73411a7ea869.item.course_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 18:36:18</sys_created_on>
+        <sys_id>f12e5ffac39ab21056c9f8cc050131a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-11 18:36:18</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>54664219-b8ec-4bc1-8a27-a4473b12b425</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.course_name.course_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 07:21:56</sys_created_on>
+        <sys_id>f2f6d79fc3de361056c9f8cc050131cc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 07:21:56</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>98119589-5a3b-49ac-acbc-d44b1d8a235d</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>e3bc7a32c31ab21056c9f8cc0501317d</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.completion_date}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:15:07</sys_created_on>
+        <sys_id>fce03fdfc352761056c9f8cc05013162</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 09:15:07</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>6f0fbebb-6c08-4b73-a2f3-814b5118238e</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_flow_variable action="delete_multiple" query="model=e3bc7a32c31ab21056c9f8cc0501317d"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_e3bc7a32c31ab21056c9f8cc0501317d"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_e3bc7a32c31ab21056c9f8cc0501317d"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_e3bc7a32c31ab21056c9f8cc0501317d"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_e3bc7a32c31ab21056c9f8cc0501317d"/>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>26000</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <flow_priority>MEDIUM</flow_priority>
+        <internal_name>training__daily_course_reminder</internal_name>
+        <label_cache>[{"name":"143d1295-740b-47de-a637-823c32281578.item.completion_date","label":"2 - For Each➛Training Registration Table Record➛Completion Date","reference":"","reference_display":"Completion Date","type":"glide_date","base_type":"glide_date","parent_table_name":"x_1862243_training_training_registration_table","column_name":"completion_date","usedInstances":{"5796fc3c-cac3-434c-804b-1e181ca0afcb":[null]}},{"name":"143d1295-740b-47de-a637-823c32281578.item.learner.first_name","label":"2 - For Each➛Training Registration Table Record➛Learner➛First name","reference":"","reference_display":"First name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"first_name","usedInstances":{"5796fc3c-cac3-434c-804b-1e181ca0afcb":[null]}},{"name":"7c1c1f57-767c-48bd-ab1f-83d8003857cf.Record.course_name","label":"3 - Look Up Record➛Training Course Table Record➛Course Name","reference":"","reference_display":"Course Name","type":"string","base_type":"string","parent_table_name":"x_1862243_training_training_course_table","column_name":"course_name","usedInstances":{"5796fc3c-cac3-434c-804b-1e181ca0afcb":["ah_subject",null]}},{"name":"143d1295-740b-47de-a637-823c32281578.item.learner.email","label":"2 - For Each➛Training Registration Table Record➛Learner➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email","usedInstances":{"5796fc3c-cac3-434c-804b-1e181ca0afcb":["ah_to"]}},{"name":"143d1295-740b-47de-a637-823c32281578.item","label":"2 - For Each➛Training Registration Table Record","reference":"x_1862243_training_training_registration_table","reference_display":"Training Registration Table","type":"reference","base_type":"reference","usedInstances":{"5796fc3c-cac3-434c-804b-1e181ca0afcb":["record"]},"attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}},{"name":"7c1c1f57-767c-48bd-ab1f-83d8003857cf.Record.is_active","label":"3 - Look Up Record➛Training Course Table Record➛Active","reference":"","reference_display":"Active","type":"boolean","base_type":"boolean","parent_table_name":"x_1862243_training_training_course_table","column_name":"is_active","usedInstances":{"26715328-99da-47f9-99ec-529a506e0204":["condition"]}},{"name":"7c1c1f57-767c-48bd-ab1f-83d8003857cf.Record.course_start_date","label":"3 - Look Up Record➛Training Course Table Record➛Course Start Date","reference":"","reference_display":"Course Start Date","type":"glide_date","base_type":"glide_date","parent_table_name":"x_1862243_training_training_course_table","column_name":"course_start_date","usedInstances":{"26715328-99da-47f9-99ec-529a506e0204":["condition"]}},{"name":"143d1295-740b-47de-a637-823c32281578.item.course_name.sys_id","label":"2 - For Each➛Training Registration Table Record➛Course Name➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"x_1862243_training_training_course_table","column_name":"sys_id","usedInstances":{"7c1c1f57-767c-48bd-ab1f-83d8003857cf":["conditions"]}},{"name":"6be9162d-d301-45c3-b2f3-f8a79e98c668.Records","label":"1 - Look Up Records➛Training Registration Table Records","reference":"x_1862243_training_training_registration_table","reference_display":"Training Registration Table","type":"records","base_type":"records","usedInstances":{"143d1295-740b-47de-a637-823c32281578":["items"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"02a53c25-4bd6-4f45-bf2a-b82beafb9d4b.Record.course_name","label":"1 - Look Up Record➛Training Course Table Record➛Course Name","reference":"","reference_display":"Course Name","type":"string","base_type":"string","parent_table_name":"x_1862243_training_training_course_table","column_name":"course_name","usedInstances":{"2f2a2658-788d-4c23-a0d1-f31c4a6a9c3a":["ah_subject",null]}},{"name":"8754ed8c-abbf-4adb-8c50-6af3cbac1a79.Record.learner.email","label":"2 - Look Up Record➛Training Registration Table Record➛Learner➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email","usedInstances":{"2f2a2658-788d-4c23-a0d1-f31c4a6a9c3a":["ah_to"]}},{"name":"8754ed8c-abbf-4adb-8c50-6af3cbac1a79.Record","label":"2 - Look Up Record➛Training Registration Table Record","reference":"x_1862243_training_training_registration_table","reference_display":"Training Registration Table","type":"reference","base_type":"reference","usedInstances":{"2f2a2658-788d-4c23-a0d1-f31c4a6a9c3a":["record"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"02a53c25-4bd6-4f45-bf2a-b82beafb9d4b.Table","label":"1 - Look Up Record➛Training Course Table Table","reference":"x_1862243_training_training_course_table","reference_display":"Training Course Table","type":"table_name","base_type":"table_name","usedInstances":{"a6ef1510-9b59-4de7-bfc1-5a1e91dbced7":["table"],"16bafa86-a32d-4d8a-85e5-245ae8ce4093":["table"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","filter_table_source":"v_cluster_transaction"}},{"name":"22fbb3e5-4f18-47ea-ac71-75deebc2801d.item.learner.first_name","label":"4 - For Each➛Training Registration Table Record➛Learner➛First name","reference":"","reference_display":"First name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"first_name","usedInstances":{"ad9d7ec6-ea48-4659-a41d-a76398544f72":[null]}},{"name":"22fbb3e5-4f18-47ea-ac71-75deebc2801d.item.learner.email","label":"4 - For Each➛Training Registration Table Record➛Learner➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email","usedInstances":{"ad9d7ec6-ea48-4659-a41d-a76398544f72":["ah_to"]}},{"name":"22fbb3e5-4f18-47ea-ac71-75deebc2801d.item.course_name","label":"4 - For Each➛Training Registration Table Record➛Course Name","reference":"x_1862243_training_training_course_table","reference_display":"Training Course Table","type":"reference","base_type":"reference","parent_table_name":"x_1862243_training_training_registration_table","column_name":"course_name","usedInstances":{"ad9d7ec6-ea48-4659-a41d-a76398544f72":["record"]}},{"name":"bb0b1604-e250-4acc-aac6-8aaab61fe073.Records","label":"3 - Look Up Records➛Records","reference_display":"Records","type":"records","base_type":"records","usedInstances":{"22fbb3e5-4f18-47ea-ac71-75deebc2801d":["items"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Daily_1.run_start_date_time","label":"Trigger - Run Daily ➛Run Start Date/Time","type":"glide_date_time","base_type":"glide_date_time","usedInstances":{"02a53c25-4bd6-4f45-bf2a-b82beafb9d4b":["conditions"],"7b558a5f-f469-4214-8c83-a44490d03d8c":["conditions"],"26715328-99da-47f9-99ec-529a506e0204":["condition"]},"attributes":{"test_input_hidden":"true"}},{"name":"02a53c25-4bd6-4f45-bf2a-b82beafb9d4b.Record.course_start_date","label":"1 - Look Up Record➛Training Course Table Record➛Course Start Date","reference":"","reference_display":"Course Start Date","type":"glide_date","base_type":"glide_date","parent_table_name":"x_1862243_training_training_course_table","column_name":"course_start_date","usedInstances":{"bddbadf7-ed50-495e-9c00-f16e3e45c83e":["conditions"]}},{"name":"02a53c25-4bd6-4f45-bf2a-b82beafb9d4b.Record.course_end_date","label":"1 - Look Up Record➛Training Course Table Record➛Course End Date","reference":"","reference_display":"Course End Date","type":"glide_date","base_type":"glide_date","parent_table_name":"x_1862243_training_training_course_table","column_name":"course_end_date","usedInstances":{"bddbadf7-ed50-495e-9c00-f16e3e45c83e":["conditions"]}},{"name":"8754ed8c-abbf-4adb-8c50-6af3cbac1a79.Record.learner.first_name","label":"2 - Look Up Record➛Training Registration Table Record➛Learner➛First name","reference":"","reference_display":"First name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"first_name","usedInstances":{"2f2a2658-788d-4c23-a0d1-f31c4a6a9c3a":[null]}},{"name":"8754ed8c-abbf-4adb-8c50-6af3cbac1a79.Record.completion_date","label":"2 - Look Up Record➛Training Registration Table Record➛Completion Date","reference":"","reference_display":"Completion Date","type":"glide_date","base_type":"glide_date","parent_table_name":"x_1862243_training_training_registration_table","column_name":"completion_date","usedInstances":{"2f2a2658-788d-4c23-a0d1-f31c4a6a9c3a":[null]}}]</label_cache>
+        <master>true</master>
+        <name>Training – Daily Course Reminder</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="Training – Daily Course Reminder">e3bc7a32c31ab21056c9f8cc0501317d</parent_flow>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 07:31:22</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>978f824bc3d6f21056c9f8cc050131fd</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 10:01:00</sys_updated_on>
+        <type>flow</type>
+        <version>2</version>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=978f824bc3d6f21056c9f8cc050131fd"/>
+    <sys_variable_value action="delete_multiple" query="document_key=978f824bc3d6f21056c9f8cc050131fd"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=978f824bc3d6f21056c9f8cc050131fd"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=978f824bc3d6f21056c9f8cc050131fd^sys_idNOT IN5b8f824bc3d6f21056c9f8cc050131fe"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>978f824bc3d6f21056c9f8cc050131fd</id>
+        <name>Training – Daily Course Reminder</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 07:31:22</sys_created_on>
+        <sys_id>5b8f824bc3d6f21056c9f8cc050131fe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 07:31:22</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=5b8f824bc3d6f21056c9f8cc050131fe"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=978f824bc3d6f21056c9f8cc050131fd"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=978f824bc3d6f21056c9f8cc050131fd"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=978f824bc3d6f21056c9f8cc050131fd"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=978f824bc3d6f21056c9f8cc050131fd^sys_idNOT INdb8fc24bc3d6f21056c9f8cc0501310c"/>
+    <sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE">
+        <comment>Trigger will start everyday 9AM</comment>
+        <display_text/>
+        <flow display_value="Training – Daily Course Reminder">978f824bc3d6f21056c9f8cc050131fd</flow>
+        <name>Daily</name>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 07:31:22</sys_created_on>
+        <sys_id>db8fc24bc3d6f21056c9f8cc0501310c</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 10:00:56</sys_updated_on>
+        <trigger_definition display_value="Daily">89142dc0c32222002841b63b12d3ae8a</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/21STUvEMBD9K5LzWtJdP3sTZMGDCipeRMo0me4GpklM09Uq/ncnbVxULLnMm5k37z369CEIGiRRiQfToVgIYyMGC/QwemR0Q0ZjHedeB1ZDdGEUVQwDLoQLGoOoSikXYgc04P3YX2le42ELXSLIq1OXy/L8VB7Kkt+BPK+k5MddD4GnY+L6EGprSAe0onp6Zj2JbgX6CLWSarXkT8rl2VHZnKyacqlXgHjMFH9s/L4e/zHzUzu+RbQa+VQL1OM/TgOCvrU07ie2HNRstIO33rxjpgrYIotXODf3Za1N7wnGGVZbZxTe+micnZEIDeUd5Wjo7M3sgGuNLQwUH3OEjAw986FPmpOKLKm937rXu++Da2Mng7lJTgHtK4gxmGaI2KfEkbBjoroD743d1D64nZmWWUtXTLEVLblXPtqbjS1AJeEFRwTFmvHLCX6EYJKLa6bh5c/Jff0ypLuzj6y4nk3zQA5lbZDyb9OrYHy84AM7zHI/n78AKJFQK6cCAAA=</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>daily</trigger_type>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=978f824bc3d6f21056c9f8cc050131fd^sys_idNOT IN0318371bc392761056c9f8cc050131e7,4718371bc392761056c9f8cc050131e4,c318371bc392761056c9f8cc050131e3"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Send Email">c1806bf4a70323008299b39f087901cb</action_type>
+        <action_type_parent display_value="Send Email">98c181d20b100300d97d8bf637673ab5</action_type_parent>
+        <attributes/>
+        <comment>Email sent to Learner.</comment>
+        <compiled_snapshot>c1806bf4a70323008299b39f087901cb</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Training – Daily Course Reminder">978f824bc3d6f21056c9f8cc050131fd</flow>
+        <generation_source/>
+        <order>5</order>
+        <parent_ui_id>26715328-99da-47f9-99ec-529a506e0204</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:40</sys_created_on>
+        <sys_id>0318371bc392761056c9f8cc050131e7</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 10:00:59</sys_updated_on>
+        <ui_id>5796fc3c-cac3-434c-804b-1e181ca0afcb</ui_id>
+        <values>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</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=0318371bc392761056c9f8cc050131e7"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Look Up Record">9d09f99587003300663ca1bb36cb0ba3</action_type>
+        <action_type_parent display_value="Look Up Record">b93f42810b30030085c083eb37673a63</action_type_parent>
+        <attributes/>
+        <comment>accesses the course from the course table using sys id.</comment>
+        <compiled_snapshot>9d09f99587003300663ca1bb36cb0ba3</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Training – Daily Course Reminder">978f824bc3d6f21056c9f8cc050131fd</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id>143d1295-740b-47de-a637-823c32281578</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:40</sys_created_on>
+        <sys_id>4718371bc392761056c9f8cc050131e4</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 10:00:58</sys_updated_on>
+        <ui_id>7c1c1f57-767c-48bd-ab1f-83d8003857cf</ui_id>
+        <values>H4sIAAAAAAAA/+VYXY/aOhD9K1GegZsvSNi3q10hVertSl1uX9rKcmJnsWqc1HH2C/Hf7zh2AEEWiC4r7apv2B57zsycM3b4vnIZca9cMvWm+XQ6TmLPC0PPm0zCDPtpGk6y1Etx5A5cgZcULBVOOYXhA+a1Hj8hP5kEQRQiJTETTNxvf2RFLSuK2i2EVSXHz9/szrk1c64bM2duzbIF40RS4V59/zlwSyzBsaLSvVrtLZ2LnOOUcu3QOtiLRD2XmyFq1szc591tzhezUEiioXgDlz4pKggFDDnmFR24SywIVoV83sxIismt4NuJBRMKTnS18VPFXsBv4mm7nEJUGTVrmyGyGTPT+Q1W+E7JOlO1tKbZomAZrUw+CM1xzdX17pwxuC0VK4TZYsI2uwteL8UXkw53c0BbIJipoXyEljpQjdyGkd8tisevLcoZE01O7CIvMsw3I6yUZGmtNJ6VSzldwkFoictSE6SUxQNrNgOW5eiew2CU8+IRnFbsXoxwpoGPIK94NIP5m2b6G5ZMR/EPHAObARDjwBBDNFQBnZpUPqCM11WzILGozFnueuBWz9U1x1W1jRxSjn7XGrfJg40YmaTpLZlkpfobjnigNrj1oBXP+CgFp1vKZYUgTKOodhQEaBAjP2rYTFYrPwqJH0zHwzjy0mEUEzrEkzAeJkGYhUGQ+OM4GTFFlyOrLn30yJyxXh+q7MKn9xTn6cy04rzeTU1XuqxMD+Y+dx1gZepfTKaR530koYLz96fT/sozKTghP58cJRnZ8qkqpEImlzv6O9RMb56fAaHl+a1mppM+v4bK0jxnlJOu22imF/Zuo+DPvI3eJckBEEGmekxwJpqnBQB9K/aPj1Iv9fd41tBr5+7Rc7jKDjWAHVU4L72VcAacVgl34NuZGzwdENt+31Bmv9e3k1YA4cUEEAaXEcBqE+YmkR05b1+Tupqt/Yu2x/v2QMGdDf66S2C9fPp9fQbrQwGHvRS8SzazcvMK5y787HxFkYO3bAEL2Gr9IaNf9MjIPVVb760VKdQj5r+61i3jUFuoJrw3eML6R7+i0p0nLMvREirHSnhpS5oBOSqEJUV5UQuC7Bt7SyRdyZzJSlnjw0bzlYJ+hFOAMB21oE5j7Wyse17Ep+NoU/kpd9pArLfKgUCcJhBnE0i/sPs0reiCj9NLN60ZZrypBnw+lTvlpFIW8pXGdaKQRxhxZlc7E5R/UVD/v+11SaCz/Z3A+iG+xS/fmjKK0yjAkzj0fc/zPRJ7SRz7ySTNJziO8q1GEapEBt0UTs6BKnA8aqnR1tk77D+mpfZtNGegail4Uwj9+R3EytGwoL5OC+s0cNtQ0qLgFIu9jjKHe+KvmcVv+Tp+d13lQ/wzVbP5fqbNVGeu3+rdULN/Bftd00+aYgn1gsQn2TCJ/XgY5WQynBI8HuJpOo5DQrMov+RT4Od/SbheugwWAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=4718371bc392761056c9f8cc050131e4"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent display_value="Look Up Records">d1c56ec50b30030085c083eb37673a50</action_type_parent>
+        <attributes/>
+        <comment>checks registration status is registered in every recod.</comment>
+        <compiled_snapshot>43400a1587003300663ca1bb36cb0b4b</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Training – Daily Course Reminder">978f824bc3d6f21056c9f8cc050131fd</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:40</sys_created_on>
+        <sys_id>c318371bc392761056c9f8cc050131e3</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 10:00:58</sys_updated_on>
+        <ui_id>6be9162d-d301-45c3-b2f3-f8a79e98c668</ui_id>
+        <values>H4sIAAAAAAAA/+VX22rjMBD9leBnE+w4TbN9W1oKC71AW/rSLUK25USsInslOZeG/PuOLMn2Jm43gQRa9i2ai+bM6BxZeVl7NPUuvHE2DAIcno3PgyCKgmA0ihIcxnE0SuIgHsae73E8IxCpcMwILOeYlXq9ROF4NBgMI6QEppzySfNDkAmVsFI058glplQWDK+ebf6TDe49tIJ7TzY4mVKWCsK9i5dX3yuwABCKCO9iveXatwuGY8J0WVtgqyu1KuolqnzGdtNO690ZRy5SDSXwPbJUhKcEMGSYSeJ7M8xTrHKxqi2C4PSes8YwpVzBjp4OXkr6BnXHgY7LCHSVEOOrl8jOzZizK6zwoxJlokphQ5NpThMizTxSkuGSqcu2zQTcF3rCJsW0bbJzVs74nRmHV2/gjgkspQQQpNCNauS2jexxmi8eHMpryquZWCfLE8zqFVZK0LhUGs/aI4zMYCM0w0WhyVKIfE6rZMAy608YLPoZyxdQVNIJ7+NEA+/DXHH/GuxXlfkZC6q7uIVtIBkAUQYMMXRDMi9FNco5SlgpK4fAXJq9vI3vyZW8ZFjKpnMYOfpdatxmDrZjZIamUxJBC/UdtpgT29zG30tIZ0FDuSTnKdUoZEtNfylGKqxK+bOEnVLjgCGnuxLaL+mYUqr6cFK6bDfS1ZwV1Y7tpmsDK6rwaKKCPr6SrKD451PV4ToxI/iHWJLzD0l21vBJ5kIhM8uWWnalcDDP94DgeH6vmdmLV++hsjTPKGFp17fjWju2vh2D//Pb8SlJDoBSZE6PckZ59RAAoKdif/DxFftti2cVvRruVzYsk10N4J7Ke28HK2EPOE4Jj1C792TwdEB0931Fme273hmtAKKjCSAaHEcA67rNepAdM3dvP32aLv5Nx+PteKBgKyHcdAnsoJrhoTUHm10BRwcpuE0247l6h3NHfiS+o0j/lFfAFFJtPWT0ixY0nRDVVHdRaa4WmP3q8lvGIXdQVXsneHAOP5TtKGwkCkqBf2QSDq/94gzhebR7h4S+MR92heyBxY3jFi/hH58D04nQXiOgdDKpzqZ9j/yorZbkwyM+GD/tl9QdVqcG3Zl9if9pxxPC6x8Aa6KUxBAAAA==</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=c318371bc392761056c9f8cc050131e3"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=978f824bc3d6f21056c9f8cc050131fd"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=978f824bc3d6f21056c9f8cc050131fd^sys_idNOT IN4318371bc392761056c9f8cc050131e8,c718371bc392761056c9f8cc050131e9"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">8d18f31bc392761056c9f8cc05013177</block>
+        <comment>Loops every record in registration table</comment>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Training – Daily Course Reminder">978f824bc3d6f21056c9f8cc050131fd</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:40</sys_created_on>
+        <sys_id>4318371bc392761056c9f8cc050131e8</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 10:00:58</sys_updated_on>
+        <ui_id>143d1295-740b-47de-a637-823c32281578</ui_id>
+        <values>H4sIAAAAAAAA/51TXW+jMBD8L34miI8eF/JWtapU6a6V0qovpypa7CWxztjUNkk5xH+/dSC06mOfYMe7szODGZjpfNt592yunZN7zTZ/XiMmdcDofWAaGmQbJj02jkXsCKoL9TAUFZZpkYmVyJN0dfWD56sqq/NVvYafJZZrXhTreIvcWOHGkUaFdK2C/uX7DPwglbA4i2zBkjaPlm2GL0dS0IK0FHWZJiXPsyLPkiRbX6VVkVdpJnJAURChggoVtd7P7r6Y9X0bSjtJmIFf88x2QekRRGRJxPDdoxZI62tQDiPWgBbgje3ZxtuOAIsgHrXql46D1J7oWOh9d/IfbUyTJDTWSIY4TodLuZtznOD6Fjw8ETX3nZ1b+cFIjm6KQmANnfI3n7Gp4bH10uhpxEOlLtNGdY1+mJJgC8HlsxHSORKBbTAapM8+6qeDOW0vKu+kPocyHyrDQS0VeG9l1fmgZ2CosCGiXQNtK/V+11pzlOdh0tLEe0VFXCtzoqXhisbAg/CYcoX4jvDbM/wCVgYXv4mGhseIud7dKHDuwwuFuHvrgpLJ2exhN8UQRriVrb+mBUec5Y6v4dZP3EumXDqS8Byw+8u/Eg56ukGSf4ZOxv4N4j+w8T8yexwFdQMAAA==</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">cd18f31bc392761056c9f8cc0501317a</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Training – Daily Course Reminder">978f824bc3d6f21056c9f8cc050131fd</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>4</order>
+        <outputs_assigned/>
+        <parent_ui_id>143d1295-740b-47de-a637-823c32281578</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:40</sys_created_on>
+        <sys_id>c718371bc392761056c9f8cc050131e9</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 10:00:59</sys_updated_on>
+        <ui_id>26715328-99da-47f9-99ec-529a506e0204</ui_id>
+        <values>H4sIAAAAAAAA/+1WUU/bMBD+K5Gf0yhpSFv6hkBIkxhogHgZLLrYDrVw7Mx2gCzqf985SUsFTAyxvfFWf3e++76v51M6ohtXN85e6gNrxa0iy+83IRHKY/i7IwoqTpaEasWEE1rlPRCSe5BNH1hxeifUbbDNsMtJcECduOeBsIEzDQ9AMYw3xvLAOjAuYOD6qFaBNkHBS2144DSDFkszYWsJ7dX/60BXQjLDR7U1GNTkuCHL7llIMCRQxlAm+zSh6XSWTuN4uthLillaJFOWAocUC0oouMTUww3F4KRHwj/659ra49YZlDaeT8YqFxtQG+ZZJXFI+KPjinHkU4K0PCQVSganTbtFDAd2puQTsBLKYTnikx+t+IUNp1nmE0uOEikfgttjPjo/wOUROEAqDXWNGVPpSgvK7WAO4yU00h3uYkPCWe2lDlccFHJzW8umUqeDI2RbYPNHI9JYJMFrr9RTH3WUFyv9cL5heSxU78oYlJqC3J7AoXdF4zyfjnDJKyyUV1DX6GheG30v+svIpYpuJR6iUuoHbOqnPwLqiUdoLETHiB/18BUY4VV8xTJ4eaBZgBU0718KlvNDSNYhsa09lGDtk0h0N//ZeIqD5FFcPvjjr1AjajfM86hjHb58eDtvruvmOI1Jmc0n89mcTvYWBZtAkZSTRcoWcZwusjkto3NOcYCi4Vnk/bPI/bNYr89Ou+4IhGzzJDKN2onlTlSY8OP024ebXDeYRN9q9L42wubQGzWWZ73vL1bGp0HPDXrfxtuHrMySOHt94+3NXtt4r+y6d6656Rtrzkv5yy0Xx/HnmvvwmsNhGpbTqK1v/g+33I1faUPPrddUWKR26bEvm68QH2hxuATdhR60ufOinrD1b3oauYbPCAAA</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=978f824bc3d6f21056c9f8cc050131fd^sys_idNOT IN0318771bc392761056c9f8cc0501310c,0718371bc392761056c9f8cc050131fe,3f7ce81bc3d2361056c9f8cc050131ca,4318371bc392761056c9f8cc050131fe,538fc24bc3d6f21056c9f8cc0501310d,58361b5fc3de361056c9f8cc0501315d,5b8fc24bc3d6f21056c9f8cc0501310d,60361b5fc3de361056c9f8cc0501315e,64361b5fc3de361056c9f8cc0501315e,737ce81bc3d2361056c9f8cc050131cb,7b7ce81bc3d2361056c9f8cc050131ca,8b18771bc392761056c9f8cc0501310b,8f18371bc392761056c9f8cc050131fe,a0075b9fc3de361056c9f8cc05013120,c718371bc392761056c9f8cc050131fe,d78fc24bc3d6f21056c9f8cc0501310d,db8fc24bc3d6f21056c9f8cc0501310d,e4075b9fc3de361056c9f8cc0501311f,e8075b9fc3de361056c9f8cc0501311f"/>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.completion_date}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:41</sys_created_on>
+        <sys_id>0318771bc392761056c9f8cc0501310c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 09:46:41</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>6f0fbebb-6c08-4b73-a2f3-814b5118238e</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{143d1295-740b-47de-a637-823c32281578.item.completion_date}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:41</sys_created_on>
+        <sys_id>0718371bc392761056c9f8cc050131fe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 09:46:41</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>9594d391-e7b6-48a3-8c23-616fc4d07b81</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{8754ed8c-abbf-4adb-8c50-6af3cbac1a79.Record.learner.first_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 18:57:04</sys_created_on>
+        <sys_id>3f7ce81bc3d2361056c9f8cc050131ca</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 18:57:04</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>e70e62cf-e3b9-40da-be99-65604edf4690</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.course_name.course_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:41</sys_created_on>
+        <sys_id>4318371bc392761056c9f8cc050131fe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 09:46:41</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>52d97a40-9234-4bea-a2a2-b7e224f91bb5</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{22fbb3e5-4f18-47ea-ac71-75deebc2801d.item.learner.first_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 07:31:22</sys_created_on>
+        <sys_id>538fc24bc3d6f21056c9f8cc0501310d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 07:31:22</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>cc1ffc00-50f6-400a-8a7b-f5efcf7920c3</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.course_name.course_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 07:18:30</sys_created_on>
+        <sys_id>58361b5fc3de361056c9f8cc0501315d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 07:18:30</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>44cc370a-3056-4dee-a92f-e315f3c5694c</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{d7669a5a-97f4-4856-93f0-73411a7ea869.item.location}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 07:31:22</sys_created_on>
+        <sys_id>5b8fc24bc3d6f21056c9f8cc0501310d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 07:31:22</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>384526aa-13a7-4d2d-8feb-c0b50f80236a</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.learner.first_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 07:18:30</sys_created_on>
+        <sys_id>60361b5fc3de361056c9f8cc0501315e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 07:18:30</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>22936c9c-81b1-4094-8975-fba9cde5b770</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.completion_date}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 07:18:30</sys_created_on>
+        <sys_id>64361b5fc3de361056c9f8cc0501315e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 07:18:30</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>fa94f21d-1c22-4b14-aed1-af0f96491d36</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{02a53c25-4bd6-4f45-bf2a-b82beafb9d4b.Record.course_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 18:57:04</sys_created_on>
+        <sys_id>737ce81bc3d2361056c9f8cc050131cb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 18:57:04</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>a314a24e-5072-4168-9198-37fd911784ce</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{8754ed8c-abbf-4adb-8c50-6af3cbac1a79.Record.completion_date}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 18:57:04</sys_created_on>
+        <sys_id>7b7ce81bc3d2361056c9f8cc050131ca</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 18:57:04</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>ed577de3-52be-4e9e-8656-f32f1cbe5729</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{7c1c1f57-767c-48bd-ab1f-83d8003857cf.Record.course_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:41</sys_created_on>
+        <sys_id>8b18771bc392761056c9f8cc0501310b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 09:46:41</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>c2e0d251-992c-4e04-8b60-d07628644293</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{143d1295-740b-47de-a637-823c32281578.item.learner.first_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:41</sys_created_on>
+        <sys_id>8f18371bc392761056c9f8cc050131fe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 09:46:41</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>428f1392-f605-49a1-97cb-2a0790a4297c</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.learner}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 07:22:03</sys_created_on>
+        <sys_id>a0075b9fc3de361056c9f8cc05013120</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 07:22:03</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>0875f20e-2a72-4250-9676-1f2a50366664</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.learner}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 09:46:41</sys_created_on>
+        <sys_id>c718371bc392761056c9f8cc050131fe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 09:46:41</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>42dd9d0c-ef76-4639-9c4d-55b5742014eb</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{d7669a5a-97f4-4856-93f0-73411a7ea869.item.course_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 07:31:22</sys_created_on>
+        <sys_id>d78fc24bc3d6f21056c9f8cc0501310d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 07:31:22</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>54664219-b8ec-4bc1-8a27-a4473b12b425</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{d7669a5a-97f4-4856-93f0-73411a7ea869.item.course_start_date}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 07:31:22</sys_created_on>
+        <sys_id>db8fc24bc3d6f21056c9f8cc0501310d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 07:31:22</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>586a96a4-91b3-4ef9-95dd-cab6a1ec2ec0</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.course_name.course_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 07:22:03</sys_created_on>
+        <sys_id>e4075b9fc3de361056c9f8cc0501311f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 07:22:03</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>98119589-5a3b-49ac-acbc-d44b1d8a235d</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>978f824bc3d6f21056c9f8cc050131fd</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{a1603505-3c99-4cd6-aebd-7b4bf97788ba.item.completion_date}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-13 07:22:03</sys_created_on>
+        <sys_id>e8075b9fc3de361056c9f8cc0501311f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-13 07:22:03</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>a797c993-1d97-4b1d-afc1-b0f798b34c10</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_flow_variable action="delete_multiple" query="model=978f824bc3d6f21056c9f8cc050131fd"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_978f824bc3d6f21056c9f8cc050131fd"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_978f824bc3d6f21056c9f8cc050131fd"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_978f824bc3d6f21056c9f8cc050131fd"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_978f824bc3d6f21056c9f8cc050131fd"/>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>e3bc7a32c31ab21056c9f8cc0501317d</sys_id>
+        <latest_snapshot>978f824bc3d6f21056c9f8cc050131fd</latest_snapshot>
+        <compiler_build>glide-xanadu-07-02-2024__patch11-11-27-2025_12-07-2025_2348.zip</compiler_build>
+    </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=e3bc7a32c31ab21056c9f8cc0501317d^sys_idNOT IN938fc24bc3d6f21056c9f8cc05013139"/>
+    <sys_flow_trigger_plan action="INSERT_OR_UPDATE">
+        <binding_strategy>com.snc.process_flow.engine.binding.RunAlways</binding_strategy>
+        <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"938fc24bc3d6f21056c9f8cc05013139","name":"plan","plan_signature":null}}</plan>
+        <plan_id>e3bc7a32c31ab21056c9f8cc0501317d</plan_id>
+        <snapshot>474b592fc35a761056c9f8cc050131dd</snapshot>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-12 07:31:22</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>938fc24bc3d6f21056c9f8cc05013139</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-12 18:57:04</sys_updated_on>
+        <trigger display_value="">df8fc24bc3d6f21056c9f8cc05013135</trigger>
+    </sys_flow_trigger_plan>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=e3bc7a32c31ab21056c9f8cc0501317d"/>
+</record_update>

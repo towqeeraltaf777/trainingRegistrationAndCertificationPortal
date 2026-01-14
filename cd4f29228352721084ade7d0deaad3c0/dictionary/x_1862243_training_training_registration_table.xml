@@ -5,10 +5,10 @@
         <element attributes="edge_encryption_enabled=true" label="Registration Date" max_length="40" name="registration_date" read_only="true" type="glide_date"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="registered" label="Registration Status" max_length="40" name="registration_status" type="choice">
             <choice>
-                <element inactive_on_update="false" label="Waitlisted" value="wait_listed"/>
-                <element inactive_on_update="false" label="Completed" value="completed"/>
-                <element inactive_on_update="false" label="Registered" value="registered"/>
-                <element inactive_on_update="false" label="Cancelled" value="cancelled"/>
+                <element inactive_on_update="false" label="Waitlisted" sequence="3" value="wait_listed"/>
+                <element inactive_on_update="false" label="Completed" sequence="1" value="completed"/>
+                <element inactive_on_update="false" label="Registered" sequence="2" value="registered"/>
+                <element inactive_on_update="false" label="Cancelled" sequence="0" value="cancelled"/>
             </choice>
         </element>
         <element attributes="encode_utf8=false" label="Learner" mandatory="true" max_length="32" name="learner" reference="sys_user" type="reference"/>
