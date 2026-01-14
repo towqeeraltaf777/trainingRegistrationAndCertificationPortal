@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Root */
+.instructor-course-detail {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 26px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Header */
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.course-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.3px;
+}
+
+/* Status pill */
+.course-status {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.course-status.active {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.course-status.inactive {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+/* Metrics grid */
+.course-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+/* Metric card */
+.metric-card {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.10);
+}
+
+/* Metric text */
+.metric-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.metric-sub {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-left: 4px;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>instructor_course_detail</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Instructor Course Detail</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+
+  data.course = {};
+  data.learners = [];
+
+  var courseId = $sp.getParameter('course_id');
+  if (!courseId) return;
+
+  // Security check (important)
+  if (!gs.hasRole('x_1862243_training.training_instructor')) {
+    return;
+  }
+
+  var courseGR = new GlideRecord('x_1862243_training_training_course_table');
+  if (courseGR.get(courseId)) {
+
+    data.course = {
+      name: courseGR.course_name.toString(),
+      status: courseGR.is_active ? 'Active' : 'Inactive',
+      maxSeats: courseGR.maximum_seats.toString(),
+      availableSeats: courseGR.available_seats.toString(),
+      startDate: courseGR.getDisplayValue('course_start_date'),
+      endDate: courseGR.getDisplayValue('course_end_date')
+    };
+  }
+
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 06:12:59</sys_created_on>
+        <sys_id>56c0d4b3831ab61084ade7d0deaad360</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Instructor Course Detail</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_widget_56c0d4b3831ab61084ade7d0deaad360</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 07:14:16</sys_updated_on>
+        <template><![CDATA[<div class="instructor-course-detail">
+
+  <!-- Header -->
+  <div class="course-header">
+    <div class="course-title">
+      {{data.course.name}}
+    </div>
+
+    <span class="course-status"
+          ng-class="{
+            'active': data.course.status === 'Active',
+            'inactive': data.course.status !== 'Active'
+          }">
+      {{data.course.status}}
+    </span>
+  </div>
+
+  <!-- Meta Cards -->
+  <div class="course-metrics">
+
+    <div class="metric-card">
+      <div class="metric-label">Available Seats</div>
+      <div class="metric-value">
+        {{data.course.availableSeats}}
+        <span class="metric-sub">/ {{data.course.maxSeats}}</span>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-label">Course Status</div>
+      <div class="metric-value">
+        {{data.course.status}}
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-label">End Date</div>
+      <div class="metric-value">
+        {{data.course.endDate || '—'}}
+      </div>
+    </div>
+
+  </div>
+
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

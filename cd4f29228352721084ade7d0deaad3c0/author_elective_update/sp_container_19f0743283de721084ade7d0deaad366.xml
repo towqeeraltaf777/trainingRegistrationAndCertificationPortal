@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>Course Details - Container 2</name>
+        <order>2</order>
+        <semantic_tag/>
+        <sp_page display_value="course_details">c9aca83e835e721084ade7d0deaad3ce</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 05:59:36</sys_created_on>
+        <sys_id>19f0743283de721084ade7d0deaad366</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Course Details - Container 2</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_container_19f0743283de721084ade7d0deaad366</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 08:37:26</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</application>
+        <file_path/>
+        <instance_id>07cd9a6f1b8ec21419254089bd4bcbe1</instance_id>
+        <instance_name>dev270043</instance_name>
+        <name>sp_container_19f0743283de721084ade7d0deaad366</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>Course Details - Container 2</name><order>2</order><semantic_tag/><sp_page display_value="course_details">c9aca83e835e721084ade7d0deaad3ce</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-11 05:59:36</sys_created_on><sys_id>19f0743283de721084ade7d0deaad366</sys_id><sys_mod_count>3</sys_mod_count><sys_name>Course Details - Container 2</sys_name><sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package><sys_policy/><sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope><sys_update_name>sp_container_19f0743283de721084ade7d0deaad366</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-14 08:37:26</sys_updated_on><title/><width>container</width></sp_container></record_update>]]></payload>
+        <payload_hash>-381139745</payload_hash>
+        <record_name>Course Details - Container 2</record_name>
+        <reverted_from/>
+        <source>12b479a68352721084ade7d0deaad3a8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 08:37:26</sys_created_on>
+        <sys_id>26d1b07f839ab61084ade7d0deaad340</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19bbba710390000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 08:37:26</sys_updated_on>
+        <type>Container</type>
+        <update_guid>aad1b07f029ab61001bc013c2755763f</update_guid>
+        <update_guid_history>aad1b07f029ab61001bc013c2755763f:-381139745,e5d1707fa69ab6106ef4baa278deb4ca:-1655180130,877d28f72a9ab6109c0e10c871775b31:-381139745,9761f532d116b2104033334362199e66:-2007987117,a261b5322016b21092a77b502f5cd3d1:-381139745,9df07432d1de721032f266c17845a867:892900640</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Course Details - Container 2">0fe1b43f839ab61084ade7d0deaad3cc</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 08:37:45</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>18f645d09b0142f6800fb9521f6cf059</sys_id>
+        <sys_metadata>19f0743283de721084ade7d0deaad366</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Course Details - Container 2</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_scope_delete display_value="">1178d0d3e3c340d49d32d5c69a8fc8a4</sys_scope_delete>
+        <sys_update_name>sp_container_19f0743283de721084ade7d0deaad366</sys_update_name>
+        <sys_update_version display_value="sp_container_19f0743283de721084ade7d0deaad366">26d1b07f839ab61084ade7d0deaad340</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 08:37:45</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
