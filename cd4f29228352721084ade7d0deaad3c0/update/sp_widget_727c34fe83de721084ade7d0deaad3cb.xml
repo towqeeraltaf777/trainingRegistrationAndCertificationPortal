@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Card container */
+.my-courses-card {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  padding: 20px;
+}
+
+/* Header */
+.my-courses-header {
+  margin-bottom: 16px;
+}
+
+.my-courses-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.my-courses-header .subtitle {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* Table wrapper */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+/* Modern table */
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.modern-table thead th {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  padding: 12px 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modern-table tbody td {
+  padding: 14px 10px;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* Course name emphasis */
+.course-name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Status chips */
+.status-chip {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-chip.registered {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.status-chip.waitlisted {
+  background: #fffbeb;
+  color: #92400e;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 30px;
+  color: #64748b;
+  font-size: 14px;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>my_registered_courses</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>My Registered Courses</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+
+    data.courses = [];
+
+    var regGR = new GlideRecord('x_1862243_training_training_registration_table');
+    regGR.addQuery('learner', gs.getUserID());
+    regGR.orderByDesc('registration_date');
+    regGR.query();
+
+    while (regGR.next()) {
+
+        var courseName = '—';
+
+        // ✅ confirmed reference field
+        var courseSysId = regGR.getValue('course_name');
+
+        if (courseSysId) {
+            var courseGR = new GlideRecord('x_1862243_training_training_course_table');
+            if (courseGR.get(courseSysId)) {
+                courseName = courseGR.getValue('course_name');
+            }
+        }
+
+        data.courses.push({
+            course_name: courseName,
+            status: regGR.getDisplayValue('registration_status'),
+            registered_on: regGR.getDisplayValue('registration_date'),
+            completion_date: regGR.getDisplayValue('completion_date')
+        });
+    }
+
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 06:49:58</sys_created_on>
+        <sys_id>727c34fe83de721084ade7d0deaad3cb</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>My Registered Courses</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_widget_727c34fe83de721084ade7d0deaad3cb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 09:39:36</sys_updated_on>
+        <template><![CDATA[<div class="my-courses-card">
+
+  <!-- Header -->
+  <div class="my-courses-header">
+    <h3>My Registered Courses</h3>
+    <p class="subtitle">Courses you have enrolled in</p>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-wrapper" ng-if="data.courses.length">
+
+    <table class="modern-table">
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Status</th>
+          <th>Registered On</th>
+          <th>Completion Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="c in data.courses">
+          <td class="course-name">
+            {{c.course_name}}
+          </td>
+
+          <td>
+<span class="status-chip"
+      ng-class="{
+        'registered': c.status.toLowerCase() === 'registered',
+        'waitlisted': c.status.toLowerCase() === 'waitlisted'
+      }">
+  {{c.status | uppercase}}
+</span>
+
+
+          </td>
+
+          <td>{{c.registered_on}}</td>
+          <td>{{c.completion_date || '—'}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <!-- EMPTY STATE -->
+  <div class="empty-state" ng-if="!data.courses.length">
+    You have not registered for any courses yet.
+  </div>
+
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

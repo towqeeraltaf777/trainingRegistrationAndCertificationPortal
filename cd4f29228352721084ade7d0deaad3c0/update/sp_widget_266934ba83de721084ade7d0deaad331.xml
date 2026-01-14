@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Page title */
+.page-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+/* Top stats */
+.instructor-stats {
+  margin-bottom: 22px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 30px;
+  font-weight: 800;
+  color: #111827;
+}
+
+/* Table */
+.instructor-table {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.instructor-table thead th {
+  background: #f8fafc;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.instructor-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.instructor-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.instructor-table td {
+  font-size: 14px;
+  color: #374151;
+  vertical-align: middle;
+}
+
+/* Course */
+.course-name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Status */
+.status-pill {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Filled % */
+.filled-text {
+  font-weight: 700;
+  color: #16a34a;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>instructor_course_report</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Instructor Course Report</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+
+  data.reports = [];
+
+  // ]]>🔹<![CDATA[ TOP SUMMARY COUNTERS
+  data.activeCourses = 0;
+  data.totalRegistered = 0;
+  data.totalWaitlisted = 0;
+
+  var courseGR = new GlideRecord('x_1862243_training_training_course_table');
+  courseGR.addQuery('instructor', gs.getUserID());
+  courseGR.query();
+
+  while (courseGR.next()) {
+
+    // ✅ Count active courses
+    if (courseGR.is_active) {
+      data.activeCourses++;
+    }
+
+    // ]]>🔹<![CDATA[ Registered count
+    var regAgg = new GlideAggregate('x_1862243_training_training_registration_table');
+    regAgg.addQuery('course', courseGR.sys_id);
+    regAgg.addQuery('registration_status', 'registered');
+    regAgg.addAggregate('COUNT');
+    regAgg.query();
+    regAgg.next();
+    var registered = parseInt(regAgg.getAggregate('COUNT'), 10) || 0;
+
+    // ]]>🔹<![CDATA[ Waitlisted count
+    var waitAgg = new GlideAggregate('x_1862243_training_training_registration_table');
+    waitAgg.addQuery('course', courseGR.sys_id);
+    waitAgg.addQuery('registration_status', 'waitlisted');
+    waitAgg.addAggregate('COUNT');
+    waitAgg.query();
+    waitAgg.next();
+    var waitlisted = parseInt(waitAgg.getAggregate('COUNT'), 10) || 0;
+
+    // ✅ Accumulate instructor totals
+    data.totalRegistered += registered;
+    data.totalWaitlisted += waitlisted;
+
+    var maxSeats = parseInt(courseGR.maximum_seats, 10) || 0;
+    var availableSeats = parseInt(courseGR.available_seats, 10) || 0;
+
+    var filledPercent = maxSeats > 0
+      ? Math.round(((maxSeats - availableSeats) / maxSeats) * 100)
+      : 0;
+
+    data.reports.push({
+      course: courseGR.course_name.toString(),
+      status: courseGR.is_active ? 'Active' : 'Inactive',
+      maxSeats: maxSeats,
+      availableSeats: availableSeats,
+      registered: registered,
+      waitlisted: waitlisted,
+      filled: filledPercent + '%',
+      endDate: courseGR.getDisplayValue('course_end_date')
+    });
+  }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 06:36:34</sys_created_on>
+        <sys_id>266934ba83de721084ade7d0deaad331</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Instructor Course Report</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_widget_266934ba83de721084ade7d0deaad331</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 05:54:24</sys_updated_on>
+        <template><![CDATA[<div class="instructor-overview">
+
+  <!-- Header -->
+  <h3 class="page-title">My Courses Overview Reports</h3>
+
+  <!-- TOP REPORT CARDS -->
+  <div class="row instructor-stats">
+    <div class="col-md-4">
+      <div class="stat-card">
+        <div class="stat-label">Active Courses</div>
+        <div class="stat-value">{{data.activeCourses}}</div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="stat-card">
+        <div class="stat-label">Total Learners</div>
+        <div class="stat-value">{{data.totalRegistered}}</div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="stat-card">
+        <div class="stat-label">Waitlisted Learners</div>
+        <div class="stat-value">{{data.totalWaitlisted}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <table class="table instructor-table" ng-if="data.reports.length">
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Status</th>
+        <th>Max Seats</th>
+        <th>Available</th>
+        <th>Registered</th>
+        <th>Waitlisted</th>
+        <th>Filled %</th>
+        <th>End Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="r in data.reports">
+        <td class="course-name">{{r.course}}</td>
+        <td>
+          <span class="status-pill">{{r.status}}</span>
+        </td>
+        <td>{{r.maxSeats}}</td>
+        <td>{{r.availableSeats}}</td>
+        <td>{{r.registered}}</td>
+        <td>{{r.waitlisted}}</td>
+        <td class="filled-text">{{r.filled}}</td>
+        <td>{{r.endDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- EMPTY STATE -->
+  <div class="alert alert-info" ng-if="data.reports.length === 0">
+    You are not assigned to any courses yet.
+  </div>
+
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

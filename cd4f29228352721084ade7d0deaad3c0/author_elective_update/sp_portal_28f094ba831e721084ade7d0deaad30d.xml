@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
+    <sp_portal action="DELETE">
+        <alternate_portal/>
+        <css_variables/>
+        <dark_theme/>
+        <default>false</default>
+        <enable_ais>false</enable_ais>
+        <enable_certificate_based_authentication>false</enable_certificate_based_authentication>
+        <enable_favorites>false</enable_favorites>
+        <hide_portal_name>false</hide_portal_name>
+        <homepage display_value="admin_dashboard">0f75dcfe831e721084ade7d0deaad3a2</homepage>
+        <icon/>
+        <inactive>false</inactive>
+        <kb_knowledge_base/>
+        <kb_knowledge_page/>
+        <login_page/>
+        <logo/>
+        <notfound_page/>
+        <quick_start_config/>
+        <rtl_enabled>false</rtl_enabled>
+        <sc_catalog/>
+        <sc_catalog_page/>
+        <sc_category_page/>
+        <search_application/>
+        <search_results_configuration/>
+        <sp_chat_queue/>
+        <sp_rectangle_menu/>
+        <sys_class_name>sp_portal</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 03:42:21</sys_created_on>
+        <sys_id>28f094ba831e721084ade7d0deaad30d</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Training Registration Portal</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_portal_28f094ba831e721084ade7d0deaad30d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-11 04:02:26</sys_updated_on>
+        <theme display_value="Benchmarks - Theme">166e16f65b4132003d1c484c11f91a70</theme>
+        <title>Training Registration Portal</title>
+        <ts_index_group/>
+        <url_suffix>training</url_suffix>
+    </sp_portal>
+    <sys_translated_text action="DELETE" query="documentkey=28f094ba831e721084ade7d0deaad30d"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</application>
+        <file_path/>
+        <instance_id>07cd9a6f1b8ec21419254089bd4bcbe1</instance_id>
+        <instance_name>dev270043</instance_name>
+        <name>sp_portal_28f094ba831e721084ade7d0deaad30d</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal"><sp_portal action="INSERT_OR_UPDATE"><alternate_portal/><css_variables/><dark_theme/><default>false</default><enable_ais>false</enable_ais><enable_certificate_based_authentication>false</enable_certificate_based_authentication><enable_favorites>false</enable_favorites><hide_portal_name>false</hide_portal_name><homepage display_value="admin_dashboard">0f75dcfe831e721084ade7d0deaad3a2</homepage><icon/><inactive>false</inactive><kb_knowledge_base/><kb_knowledge_page/><login_page/><logo/><notfound_page/><quick_start_config/><rtl_enabled>false</rtl_enabled><sc_catalog/><sc_catalog_page/><sc_category_page/><search_application/><search_results_configuration/><sp_chat_queue/><sp_rectangle_menu/><sys_class_name>sp_portal</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-11 03:42:21</sys_created_on><sys_id>28f094ba831e721084ade7d0deaad30d</sys_id><sys_mod_count>5</sys_mod_count><sys_name>Training Registration Portal</sys_name><sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package><sys_policy/><sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope><sys_update_name>sp_portal_28f094ba831e721084ade7d0deaad30d</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-11 04:02:26</sys_updated_on><theme display_value="Benchmarks - Theme">166e16f65b4132003d1c484c11f91a70</theme><title>Training Registration Portal</title><ts_index_group/><url_suffix>training</url_suffix></sp_portal><sys_translated_text action="delete_multiple" query="documentkey=28f094ba831e721084ade7d0deaad30d"/></record_update>]]></payload>
+        <payload_hash>530419742</payload_hash>
+        <record_name>Training Registration Portal</record_name>
+        <reverted_from/>
+        <source>12b479a68352721084ade7d0deaad3a8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 08:07:17</sys_created_on>
+        <sys_id>3cfa2437839ab61084ade7d0deaad3cf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19bbb8b73980000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 08:07:17</sys_updated_on>
+        <type>Service Portal</type>
+        <update_guid>b0fa2437879ab6104cca615c53cebacf</update_guid>
+        <update_guid_history>b0fa2437879ab6104cca615c53cebacf:530419742,ebc140a7891676103ccb71940ec5d7fe:171500155,7c265c321c5e72104df4a439eb1a29bb:-1636077797,42e51832895e721051c44423ab8d4dc5:807277388,a6f4dcbe2b1e72108b9904c06d976e7f:-681074893,be041c7e541e72106339a214838aa37a:807277388,ab02d8facd1e72100373277b6b05c2f6:-1741257044,728150fa2b1e7210e81926dff159a937:-1604683350</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Training Registration Portal">0d6ee83b839ab61084ade7d0deaad3f9</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 08:22:19</sys_created_on>
+        <sys_db_object display_value="" name="sp_portal">sp_portal</sys_db_object>
+        <sys_id>4287fee7c89d46a28b1c5a40f885c939</sys_id>
+        <sys_metadata>28f094ba831e721084ade7d0deaad30d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Training Registration Portal</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_scope_delete display_value="">1178d0d3e3c340d49d32d5c69a8fc8a4</sys_scope_delete>
+        <sys_update_name>sp_portal_28f094ba831e721084ade7d0deaad30d</sys_update_name>
+        <sys_update_version display_value="sp_portal_28f094ba831e721084ade7d0deaad30d">3cfa2437839ab61084ade7d0deaad3cf</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 08:22:19</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

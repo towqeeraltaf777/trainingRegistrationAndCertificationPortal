@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($scope, spUtil) {
+    var c = this;
+
+    $scope.saveCourse = function() {
+        // Set the action so the server knows what to do
+        $scope.data.action = 'save';
+
+        $scope.server.update().then(function(response) {
+            // Check if server script set a success message
+            if (response && !response.error) {
+                spUtil.addInfoMessage($scope.data.message);
+                // Clear the form fields for the next entry
+                $scope.data.course = {
+                    is_active: true
+                };
+            }
+        });
+    };
+	
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.sn-card {&#13;
+  background: #ffffff;&#13;
+  border-radius: 14px;&#13;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);&#13;
+  max-width: 850px;&#13;
+  margin: 30px auto;&#13;
+  overflow: hidden;&#13;
+  border: 1px solid #e5e7eb;&#13;
+}&#13;
+&#13;
+.sn-card-header {&#13;
+  padding: 22px 26px;&#13;
+  background: #0f172a; /* dark slate */&#13;
+  color: #ffffff;&#13;
+}&#13;
+&#13;
+.sn-card-header h3 {&#13;
+  margin: 0;&#13;
+  font-weight: 600;&#13;
+  font-size: 18px;&#13;
+}&#13;
+&#13;
+.sn-card-header .subtitle {&#13;
+  margin-top: 6px;&#13;
+  font-size: 13px;&#13;
+  color: #cbd5f5;&#13;
+}&#13;
+&#13;
+.sn-card-body {&#13;
+  padding: 26px;&#13;
+}&#13;
+&#13;
+.form-group {&#13;
+  margin-bottom: 18px;&#13;
+}&#13;
+&#13;
+.form-group label {&#13;
+  font-weight: 600;&#13;
+  font-size: 13px;&#13;
+  margin-bottom: 6px;&#13;
+  display: block;&#13;
+  color: #374151;&#13;
+}&#13;
+&#13;
+.form-group label.required::after {&#13;
+  content: " *";&#13;
+  color: #dc2626;&#13;
+}&#13;
+&#13;
+.form-control {&#13;
+  height: 44px;&#13;
+  border-radius: 8px;&#13;
+  border: 1px solid #d1d5db;&#13;
+  font-size: 14px;&#13;
+  padding: 9px 12px;&#13;
+  background: #ffffff;&#13;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;&#13;
+}&#13;
+&#13;
+textarea.form-control {&#13;
+  height: auto;&#13;
+  min-height: 90px;&#13;
+}&#13;
+&#13;
+.form-control:hover {&#13;
+  border-color: #9ca3af;&#13;
+}&#13;
+&#13;
+.form-control:focus {&#13;
+  border-color: #2563eb;&#13;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);&#13;
+}&#13;
+&#13;
+.checkbox-group label {&#13;
+  font-weight: 500;&#13;
+  cursor: pointer;&#13;
+  color: #374151;&#13;
+}&#13;
+&#13;
+.checkbox-group input {&#13;
+  margin-right: 8px;&#13;
+}&#13;
+&#13;
+.btn-primary {&#13;
+  background-color: #2563eb;&#13;
+  border: none;&#13;
+  border-radius: 10px;&#13;
+  font-weight: 600;&#13;
+  font-size: 15px;&#13;
+  padding: 13px;&#13;
+  margin-top: 14px;&#13;
+  transition: background-color 0.2s ease, transform 0.1s ease;&#13;
+}&#13;
+&#13;
+.btn-primary:hover {&#13;
+  background-color: #1e40af;&#13;
+}&#13;
+.btn-primary:active {&#13;
+  transform: scale(0.98);&#13;
+}&#13;
+&#13;
+@media (max-width: 768px) {&#13;
+  .sn-card {&#13;
+    margin: 16px;&#13;
+  }&#13;
+}&#13;
+&#13;
+&#13;
+&#13;
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>admin_course_form</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Admin Course Form</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    // 1. Security Check
+    data.isAdmin = gs.hasRole('x_1862243_training.training_admin');
+    if (!data.isAdmin) return;
+
+    // 2. Load Instructors for the dropdown
+    data.instructors = [];
+    var userGR = new GlideRecord('sys_user');
+    userGR.addActiveQuery();
+    userGR.orderBy('name');
+    userGR.query();
+    while (userGR.next()) {
+        data.instructors.push({
+            sys_id: userGR.getUniqueValue(),
+            name: userGR.getDisplayValue()
+        });
+    }
+
+    // 3. Process Form Submission
+    if (input && input.action === 'save' && input.course) {
+        var newCourse = new GlideRecord('x_1862243_training_training_course_table');
+        newCourse.initialize(); // Critical: Prepare a fresh record
+
+        // Map data from input.course to table fields
+        newCourse.setValue('course_name', input.course.course_name);
+        newCourse.setValue('course_description', input.course.course_description);
+        newCourse.setValue('instructor', input.course.instructor);
+        newCourse.setValue('duration_hours', input.course.duration_hours);
+        newCourse.setValue('course_category', input.course.course_category);
+        newCourse.setValue('maximum_seats', input.course.maximum_seats);
+        newCourse.setValue('available_seats', input.course.maximum_seats);
+        newCourse.setValue('course_start_date', input.course.course_start_date);
+        newCourse.setValue('course_end_date', input.course.course_end_date);
+        newCourse.setValue('location', input.course.location);
+        newCourse.setValue('active', input.course.is_active); // Common table field is 'active'
+
+        var success = newCourse.insert();
+
+        if (success) {
+            data.message = "Course '" + input.course.course_name + "' has been created.";
+            data.error = false;
+        } else {
+            data.message = "Could not create record. Check mandatory fields.";
+            data.error = true;
+        }
+    }
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 11:20:23</sys_created_on>
+        <sys_id>006ab5368316b21084ade7d0deaad364</sys_id>
+        <sys_mod_count>39</sys_mod_count>
+        <sys_name>Admin Course Form</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_widget_006ab5368316b21084ade7d0deaad364</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 05:29:19</sys_updated_on>
+        <template><![CDATA[<div ng-if="data.isAdmin" class="sn-card">
+  <!-- Header -->
+  <div class="sn-card-header">
+    <h3>Create New Course</h3>
+    <p class="subtitle">Fill in the details below to publish a new training course</p>
+  </div>
+
+  <!-- Body -->
+  <div class="sn-card-body">
+    <form ng-submit="saveCourse()" novalidate>
+
+      <!-- Course Name -->
+      <div class="form-group">
+        <label class="required">Course Name</label>
+        <input type="text"
+               class="form-control"
+               placeholder="e.g. Angular Fundamentals"
+               ng-model="data.course.course_name"
+               required>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label>Course Description</label>
+        <textarea class="form-control"
+                  rows="3"
+                  placeholder="Brief description of the course"
+                  ng-model="data.course.course_description">
+        </textarea>
+      </div>
+
+      <!-- Instructor -->
+      <div class="form-group">
+        <label class="required">Instructor</label>
+        <select class="form-control"
+                ng-model="data.course.instructor"
+                required>
+          <option value="">Select Instructor</option>
+          <option ng-repeat="i in data.instructors" value="{{i.sys_id}}">
+            {{i.name}}
+          </option>
+        </select>
+      </div>
+
+      <!-- Duration & Seats -->
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label>Duration (Hours)</label>
+          <input type="number"
+                 class="form-control"
+                 placeholder="e.g. 40"
+                 ng-model="data.course.duration_hours">
+        </div>
+
+        <div class="col-md-6 form-group">
+          <label class="required">Maximum Seats</label>
+          <input type="number"
+                 class="form-control"
+                 placeholder="e.g. 30"
+                 ng-model="data.course.maximum_seats"
+                 required>
+        </div>
+      </div>
+
+      <!-- Category -->
+      <div class="form-group">
+        <label>Course Category</label>
+        <select class="form-control"
+                ng-model="data.course.course_category">
+          <option value="">Select Category</option>
+          <option value="technical">Technical</option>
+          <option value="soft_skills">Soft Skills</option>
+          <option value="leadership">Leadership</option>
+        </select>
+      </div>
+
+      <!-- Dates -->
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label>Start Date</label>
+          <input type="date"
+                 class="form-control"
+                 ng-model="data.course.course_start_date">
+        </div>
+
+        <div class="col-md-6 form-group">
+          <label>End Date</label>
+          <input type="date"
+                 class="form-control"
+                 ng-model="data.course.course_end_date">
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text"
+               class="form-control"
+               placeholder="e.g. Online / Room 203"
+               ng-model="data.course.location">
+      </div>
+
+      <!-- Status -->
+      <div class="form-group checkbox-group">
+        <label>
+          <input type="checkbox"
+                 ng-model="data.course.is_active"
+                 ng-init="data.course.is_active = true">
+          Active Course
+        </label>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-primary btn-lg btn-block">
+        Create Course
+      </button>
+
+    </form>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>006ab5368316b21084ade7d0deaad364</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 05:29:17</sys_created_on>
+        <sys_id>eec6cc7783d6b61084ade7d0deaad3fe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 05:29:17</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

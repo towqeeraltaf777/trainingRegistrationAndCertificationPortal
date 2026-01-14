@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($scope, $location) {
+  $scope.openCourse = function(sysId) {
+    $location.url('?id=course_details&course_id=' + sysId);
+  };
+  
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.active-course-header {&#13;
+  display: flex;&#13;
+  flex-direction: column;&#13;
+  margin: 12px 0 18px;&#13;
+}&#13;
+&#13;
+.active-course-header h4 {&#13;
+  font-size: 16px;&#13;
+  font-weight: 700;&#13;
+  color: #0f172a;&#13;
+  margin: 0;&#13;
+}&#13;
+&#13;
+.active-course-header .hint {&#13;
+  font-size: 12px;&#13;
+  color: #6b7280;&#13;
+  margin-top: 2px;&#13;
+}&#13;
+&#13;
+.course-row-card {&#13;
+  display: grid;&#13;
+  grid-template-columns: 2.2fr 2fr 0.8fr;&#13;
+  align-items: center;&#13;
+  gap: 24px;&#13;
+&#13;
+  background: #ffffff;&#13;
+  border: 1px solid #e5e7eb;&#13;
+  border-radius: 16px;&#13;
+  padding: 20px 22px;&#13;
+  margin-bottom: 14px;&#13;
+&#13;
+  cursor: pointer;&#13;
+  transition:&#13;
+    transform 0.2s ease,&#13;
+    box-shadow 0.2s ease,&#13;
+    border-color 0.2s ease;&#13;
+}&#13;
+&#13;
+.course-row-card:hover {&#13;
+  transform: translateY(-3px);&#13;
+  border-color: #c7d2fe;&#13;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);&#13;
+}&#13;
+&#13;
+.course-row-title {&#13;
+  font-size: 15px;&#13;
+  font-weight: 700;&#13;
+  color: #111827;&#13;
+  margin-bottom: 4px;&#13;
+}&#13;
+&#13;
+.course-row-sub {&#13;
+  font-size: 13px;&#13;
+  color: #6b7280;&#13;
+}&#13;
+&#13;
+.course-row-center {&#13;
+  display: flex;&#13;
+  flex-direction: column;&#13;
+}&#13;
+&#13;
+.seat-numbers {&#13;
+  font-size: 12px;&#13;
+  font-weight: 600;&#13;
+  margin-bottom: 6px;&#13;
+  color: #475569;&#13;
+}&#13;
+&#13;
+.seat-bar {&#13;
+  height: 8px;&#13;
+  background: #e5e7eb;&#13;
+  border-radius: 999px;&#13;
+  overflow: hidden;&#13;
+}&#13;
+&#13;
+.seat-bar-fill {&#13;
+  height: 100%;&#13;
+  background: #22c55e;&#13;
+  transition: width 0.35s ease;&#13;
+}&#13;
+&#13;
+.status-badge {&#13;
+  padding: 6px 16px;&#13;
+  border-radius: 999px;&#13;
+  font-size: 12px;&#13;
+  font-weight: 700;&#13;
+  text-align: center;&#13;
+  letter-spacing: 0.3px;&#13;
+}&#13;
+&#13;
+.status-badge.open {&#13;
+  background: #ecfdf5;&#13;
+  color: #065f46;&#13;
+}&#13;
+&#13;
+.status-badge.full {&#13;
+  background: #fef2f2;&#13;
+  color: #991b1b;&#13;
+}&#13;
+&#13;
+&#13;
+/* update set capture */&#13;
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>active_course_cards</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Active Course Cards</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+  data.courses = [];
+  var gr = new GlideRecord('x_1862243_training_training_course_table');
+  gr.addQuery('is_active', true);
+  gr.query();
+  while (gr.next()) {
+    data.courses.push({
+      sys_id: gr.getUniqueValue(),
+      name: gr.getValue('course_name'),
+      instructor: gr.getDisplayValue('instructor'),
+      availableSeats: parseInt(gr.getValue('available_seats'), 10)
+    });
+  }
+  
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 06:46:53</sys_created_on>
+        <sys_id>b1cbb07e83de721084ade7d0deaad3ef</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>Active Course Cards</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_widget_b1cbb07e83de721084ade7d0deaad3ef</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 05:27:22</sys_updated_on>
+        <template><![CDATA[<!-- update set capture -->
+
+<!-- Section Header -->
+<div class="active-course-header">
+  <h4>Active Course Cards</h4>
+  <span class="hint">Click a course to view details</span>
+</div>
+
+<div class="col-md-12" ng-repeat="course in data.courses">
+  <div class="course-row-card"
+       ng-click="openCourse(course.sys_id)">
+
+    <!-- LEFT -->
+    <div class="course-row-left">
+      <div class="course-row-title">
+        {{course.name}}
+      </div>
+      <div class="course-row-sub">
+        Instructor: <strong>{{course.instructor}}</strong>
+      </div>
+    </div>
+
+    <!-- CENTER -->
+    <div class="course-row-center">
+      <div class="seat-numbers">
+        {{course.maxSeats - course.availableSeats}} / {{course.maxSeats}} filled
+      </div>
+
+      <div class="seat-bar">
+        <div class="seat-bar-fill"
+             style="width: {{course.filledPercentage}}%;">
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="course-row-right">
+      <span class="status-badge"
+            ng-class="{
+              'open': course.availableSeats > 0,
+              'full': course.availableSeats == 0
+            }">
+        {{course.availableSeats > 0 ? 'Open' : 'Full'}}
+      </span>
+    </div>
+
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>b1cbb07e83de721084ade7d0deaad3ef</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 05:27:21</sys_created_on>
+        <sys_id>0256007383d6b61084ade7d0deaad3d5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 05:27:21</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="747171e28352721084ade7d0deaad3c1" label="Training Course Table" max_length="40" name="x_1862243_training_training_course_table" type="collection">
-        <element attributes="encode_utf8=false" label="Instructor" max_length="32" name="instructor" reference="sys_user" type="reference"/>
+        <element label="is Active" max_length="40" name="is_active" type="boolean"/>
         <element label="Duration Hours" max_length="40" name="duration_hours" type="integer"/>
-        <element attributes="edge_encryption_enabled=true" label="Course End Date" max_length="40" name="course_end_date" type="glide_date"/>
-        <element attributes="edge_encryption_enabled=true" label="Course Start Date" max_length="40" name="course_start_date" type="glide_date"/>
-        <element label="Available Seats" max_length="40" name="available_seats" type="integer"/>
-        <element attributes="edge_encryption_enabled=true" label="Course Description" max_length="1000" name="course_description" type="string"/>
+        <element attributes="encode_utf8=false" label="Instructor" max_length="32" name="instructor" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Location" max_length="1000" name="location" type="string"/>
         <element label="Maximum Seats" max_length="40" name="maximum_seats" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Course End Date" max_length="40" name="course_end_date" type="glide_date"/>
+        <element label="Available Seats" max_length="40" name="available_seats" type="integer"/>
         <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Course Name" mandatory="true" max_length="100" name="course_name" type="string"/>
         <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Course Code" mandatory="true" max_length="40" name="number" read_only="true" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="technical" label="Course Category" max_length="40" name="course_category" type="choice">
             <choice>
@@ -16,9 +17,8 @@
                 <element inactive_on_update="false" label="Soft Skills" value="soft_skills"/>
             </choice>
         </element>
-        <element attributes="edge_encryption_enabled=true" label="Location" max_length="1000" name="location" type="string"/>
-        <element label="is Active" max_length="40" name="is_active" type="boolean"/>
-        <element attributes="edge_encryption_enabled=true" label="Course Name" mandatory="true" max_length="100" name="course_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Course Start Date" max_length="40" name="course_start_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Course Description" max_length="1000" name="course_description" type="string"/>
         <index name="index">
             <element name="instructor"/>
         </index>
