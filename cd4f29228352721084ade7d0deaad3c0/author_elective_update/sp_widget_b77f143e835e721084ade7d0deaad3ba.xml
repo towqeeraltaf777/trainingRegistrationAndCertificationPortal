@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($scope, $location) {
+
+  $scope.openCourse = function (courseId) {
+    $location.url('?id=course_details&course_id=' + courseId);
+  };
+
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>course_cards</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Course Cards</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+  data.courses = [];
+
+  var gr = new GlideRecord('x_1862243_training_training_course_table');
+  gr.addQuery('is_active', true);
+  gr.query();
+
+  while (gr.next()) {
+    data.courses.push({
+      sys_id: gr.getUniqueValue(),
+      name: gr.getValue('course_name'),
+      instructor: gr.getDisplayValue('instructor'),
+      availableSeats: gr.available_seats.nil() ? 0 : parseInt(gr.available_seats, 10)
+    });
+  }
+
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 04:43:19</sys_created_on>
+        <sys_id>b77f143e835e721084ade7d0deaad3ba</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>Course Cards</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_widget_b77f143e835e721084ade7d0deaad3ba</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-11 16:14:40</sys_updated_on>
+        <template><![CDATA[<div>
+  <div class="row">
+    <div class="col-md-4" ng-repeat="course in data.courses">
+      <div class="panel panel-default" style="cursor:pointer" ng-click="openCourse(course.sys_id)">
+        <div class="panel-heading">{{course.name}}</div>
+        <div class="panel-body">
+          Instructor: {{course.instructor}}<br>
+          Available Seats: {{course.availableSeats}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</application>
+        <file_path/>
+        <instance_id>07cd9a6f1b8ec21419254089bd4bcbe1</instance_id>
+        <instance_name>dev270043</instance_name>
+        <name>sp_widget_b77f143e835e721084ade7d0deaad3ba</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller = function ($scope, $location) {
+
+  $scope.openCourse = function (courseId) {
+    $location.url('?id=course_details&amp;course_id=' + courseId);
+  };
+
+};
+]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css/&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id&gt;course_cards&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;Course Cards&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+
+  data.courses = [];
+
+  var gr = new GlideRecord('x_1862243_training_training_course_table');
+  gr.addQuery('is_active', true);
+  gr.query();
+
+  while (gr.next()) {
+    data.courses.push({
+      sys_id: gr.getUniqueValue(),
+      name: gr.getValue('course_name'),
+      instructor: gr.getDisplayValue('instructor'),
+      availableSeats: gr.available_seats.nil() ? 0 : parseInt(gr.available_seats, 10)
+    });
+  }
+
+})();
+]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-01-11 04:43:19&lt;/sys_created_on&gt;&lt;sys_id&gt;b77f143e835e721084ade7d0deaad3ba&lt;/sys_id&gt;&lt;sys_mod_count&gt;18&lt;/sys_mod_count&gt;&lt;sys_name&gt;Course Cards&lt;/sys_name&gt;&lt;sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training"&gt;cd4f29228352721084ade7d0deaad3c0&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Training Registration and Certification Portal"&gt;cd4f29228352721084ade7d0deaad3c0&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_b77f143e835e721084ade7d0deaad3ba&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-01-11 16:14:40&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-md-4" ng-repeat="course in data.courses"&gt;
+      &lt;div class="panel panel-default" style="cursor:pointer" ng-click="openCourse(course.sys_id)"&gt;
+        &lt;div class="panel-heading"&gt;{{course.name}}&lt;/div&gt;
+        &lt;div class="panel-body"&gt;
+          Instructor: {{course.instructor}}&lt;br&gt;
+          Available Seats: {{course.availableSeats}}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-2042525153</payload_hash>
+        <record_name>Course Cards</record_name>
+        <reverted_from/>
+        <source>12b479a68352721084ade7d0deaad3a8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 08:06:22</sys_created_on>
+        <sys_id>5bbaecf3839ab61084ade7d0deaad338</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19bbb8a9e310000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 08:06:22</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>dfbaecf3e39ab61085c8915d23812937</update_guid>
+        <update_guid_history>dfbaecf3e39ab61085c8915d23812937:-2042525153,8913e83b955ab6104209ad74ae42e272:2075101739,cfbd3a3e2e5ab210832701d21f80da1f:-2042525153,ae9dfaba235ab210bc901ce110bbb19c:-527718031,acfc7eba4c5ab21022522bd17cb381c0:-1097911868,bb6aae72031ab210602eed6badf9a136:2108749624,85092ab24f1ab210d27bff48053820f9:498024678,91d82ab2971ab2108e82d79cdda563b6:815764982,c1c8e6b2c51ab21095ed070b0651176a:2022034092,13a866b2b11ab21055eb7db1b671638f:815764982,1b98e2b2421ab210094b6d96f1575cf4:-907925443,7b11f5fe2dd2b210fe56cb4fbc87446c:815764982,5911bdfe14d2b2101e22721f8aaa0f09:300297770,b201bdfe73d2b210f90cf3d7423c6d03:1105825607,52017dfeedd2b210ba31a10d16bde79f:1076358803,b5fba5b678d2b210caba333ce0a469c8:1105825607,08eb65f612d2b21067294f20d57d2d45:404934625,c5e8ed76f0d2b210b2355f295c513e09:-1967093545,4b31ac7e335e72100a22e81d69b957a7:1284678524,4890207e815e7210ec6df73faa15b21f:1667169223,337f143ed05e72106bbab49c9c31fcbc:-205672868</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Course Cards">0098d08583e63e1084ade7d0deaad34f</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-18 03:59:21</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>2dba8089c34044109f03c1c70bf72640</sys_id>
+        <sys_metadata>b77f143e835e721084ade7d0deaad3ba</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Course Cards</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_scope_delete display_value="">1178d0d3e3c340d49d32d5c69a8fc8a4</sys_scope_delete>
+        <sys_update_name>sp_widget_b77f143e835e721084ade7d0deaad3ba</sys_update_name>
+        <sys_update_version display_value="sp_widget_b77f143e835e721084ade7d0deaad3ba">5bbaecf3839ab61084ade7d0deaad338</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-18 03:59:21</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
