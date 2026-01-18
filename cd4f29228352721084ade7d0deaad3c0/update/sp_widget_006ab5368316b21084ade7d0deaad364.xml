@@ -144,11 +144,19 @@ textarea.form-control {&#13;
         <name>Admin Course Form</name>
         <option_schema/>
         <public>false</public>
-        <roles/>
+        <roles>x_1862243_training.training admin</roles>
         <script><![CDATA[(function() {
-    // 1. Security Check
-    data.isAdmin = gs.hasRole('x_1862243_training.training_admin');
-    if (!data.isAdmin) return;
+    // 1. Security Check - Using the exact role name with the space
+    var roleName = 'x_1862243_training.training admin';
+    
+    if (!gs.hasRole(roleName)) {
+        data.notAuthorized = true;
+        gs.addErrorMessage("Security: You do not have the required role to access this form.");
+        return;
+    }
+
+    data.isAdmin = true;
+    data.notAuthorized = false;
 
     // 2. Load Instructors for the dropdown
     data.instructors = [];
@@ -156,19 +164,25 @@ textarea.form-control {&#13;
     userGR.addActiveQuery();
     userGR.orderBy('name');
     userGR.query();
+
+    /* NOTE: If Towqeer sees an empty list, it is because of Table ACLs.
+       Admin bypasses ACLs, but Towqeer does not.
+    */
     while (userGR.next()) {
-        data.instructors.push({
-            sys_id: userGR.getUniqueValue(),
-            name: userGR.getDisplayValue()
-        });
+        // canRead() checks if the impersonated user has permission to see the record
+        if (userGR.canRead()) {
+            data.instructors.push({
+                sys_id: userGR.getUniqueValue(),
+                name: userGR.getDisplayValue()
+            });
+        }
     }
 
     // 3. Process Form Submission
     if (input && input.action === 'save' && input.course) {
         var newCourse = new GlideRecord('x_1862243_training_training_course_table');
-        newCourse.initialize(); // Critical: Prepare a fresh record
+        newCourse.initialize(); 
 
-        // Map data from input.course to table fields
         newCourse.setValue('course_name', input.course.course_name);
         newCourse.setValue('course_description', input.course.course_description);
         newCourse.setValue('instructor', input.course.instructor);
@@ -179,7 +193,7 @@ textarea.form-control {&#13;
         newCourse.setValue('course_start_date', input.course.course_start_date);
         newCourse.setValue('course_end_date', input.course.course_end_date);
         newCourse.setValue('location', input.course.location);
-        newCourse.setValue('active', input.course.is_active); // Common table field is 'active'
+        newCourse.setValue('active', input.course.is_active); 
 
         var success = newCourse.insert();
 
@@ -187,26 +201,29 @@ textarea.form-control {&#13;
             data.message = "Course '" + input.course.course_name + "' has been created.";
             data.error = false;
         } else {
-            data.message = "Could not create record. Check mandatory fields.";
+            data.message = "Could not create record. Check mandatory fields or table permissions.";
             data.error = true;
         }
     }
-	
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-01-11 11:20:23</sys_created_on>
         <sys_id>006ab5368316b21084ade7d0deaad364</sys_id>
-        <sys_mod_count>39</sys_mod_count>
+        <sys_mod_count>57</sys_mod_count>
         <sys_name>Admin Course Form</sys_name>
         <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
         <sys_policy/>
         <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
         <sys_update_name>sp_widget_006ab5368316b21084ade7d0deaad364</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-01-14 05:29:19</sys_updated_on>
-        <template><![CDATA[<div ng-if="data.isAdmin" class="sn-card">
+        <sys_updated_on>2026-01-15 10:55:59</sys_updated_on>
+        <template><![CDATA[<div ng-if="data.notAuthorized" class="alert alert-danger">
+  Access Denied
+</div>
+
+<div ng-if="!data.notAuthorized" ng-if="data.isAdmin" class="sn-card">
   <!-- Header -->
   <div class="sn-card-header">
     <h3>Create New Course</h3>

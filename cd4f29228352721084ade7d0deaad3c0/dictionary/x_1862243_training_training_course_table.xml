@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="747171e28352721084ade7d0deaad3c1" label="Training Course Table" max_length="40" name="x_1862243_training_training_course_table" type="collection">
-        <element label="is Active" max_length="40" name="is_active" type="boolean"/>
+        <element default="true" label="Active" max_length="40" name="is_active" type="boolean"/>
+        <element label="Filled Seats Percentage" max_length="20" name="filled_seats_percentage" read_only="true" type="integer"/>
         <element label="Duration Hours" max_length="40" name="duration_hours" type="integer"/>
         <element attributes="encode_utf8=false" label="Instructor" max_length="32" name="instructor" reference="sys_user" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Location" max_length="1000" name="location" type="string"/>
@@ -12,9 +13,9 @@
         <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Course Code" mandatory="true" max_length="40" name="number" read_only="true" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="technical" label="Course Category" max_length="40" name="course_category" type="choice">
             <choice>
-                <element inactive_on_update="false" label="Technical" value="technical"/>
-                <element inactive_on_update="false" label="Leadership" value="leadership"/>
                 <element inactive_on_update="false" label="Soft Skills" value="soft_skills"/>
+                <element inactive_on_update="false" label="Leadership" value="leadership"/>
+                <element inactive_on_update="false" label="Technical" value="technical"/>
             </choice>
         </element>
         <element attributes="edge_encryption_enabled=true" label="Course Start Date" max_length="40" name="course_start_date" type="glide_date"/>

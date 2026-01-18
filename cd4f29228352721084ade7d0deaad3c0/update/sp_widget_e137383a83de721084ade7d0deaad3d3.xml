@@ -8,107 +8,139 @@
 };
 ]]></client_script>
         <controller_as>c</controller_as>
-        <css>/* Dashboard header */
+        <css>/* ===============================
+   FORCE FULL-WIDTH CARD
+   =============================== */
+.instructor-dashboard .col-md-4 {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+}
+
+/* ===============================
+   DASHBOARD HEADER
+   =============================== */
 .dashboard-header {
-  margin-bottom: 18px;
+  margin-bottom: 26px;
 }
 
 .dashboard-header h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
   color: #0f172a;
+  margin: 0;
 }
 
 .dashboard-header .subtitle {
-  font-size: 13px;
-  color: #6b7280;
-  margin-top: 4px;
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 6px;
 }
 
-/* Course card */
+/* ===============================
+   COURSE CARD (FULL SIZE)
+   =============================== */
 .course-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 18px;
-  border: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  border-radius: 24px;
+  padding: 26px;
   cursor: pointer;
-  margin-bottom: 18px;
-
-  transition: transform 0.2s ease,
-              box-shadow 0.2s ease,
-              border-color 0.2s ease;
+  margin-bottom: 26px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .course-card:hover {
-  transform: translateY(-4px);
-  border-color: #c7d2fe;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 26px 60px rgba(0,0,0,0.14);
 }
 
-/* Header */
+/* ===============================
+   CARD HEADER
+   =============================== */
 .course-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 22px;
 }
 
 .course-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: #111827;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
 }
 
-/* Status pill */
+/* ===============================
+   STATUS PILL
+   =============================== */
 .status-pill {
-  padding: 5px 14px;
+  padding: 7px 18px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
 }
 
 .status-pill.active {
-  background: #ecfdf5;
-  color: #065f46;
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  color: #166534;
 }
 
 .status-pill.inactive {
-  background: #f3f4f6;
-  color: #4b5563;
+  background: linear-gradient(135deg, #f1f5f9, #e5e7eb);
+  color: #475569;
 }
 
-/* Body metrics */
+/* ===============================
+   CARD BODY – HORIZONTAL METRICS
+   =============================== */
 .course-card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 }
 
 .metric {
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: inset 0 0 0 1px #e5e7eb;
+  transition: box-shadow 0.2s ease;
+}
+
+.course-card:hover .metric {
+  box-shadow: inset 0 0 0 1px #c7d2fe;
 }
 
 .metric .label {
-  color: #6b7280;
-  font-weight: 600;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 8px;
 }
 
 .metric .value {
-  color: #111827;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 900;
+  color: #0f172a;
 }
 
-/* Empty state */
+/* ===============================
+   EMPTY STATE
+   =============================== */
 .empty-state {
-  margin-top: 20px;
-  padding: 16px;
+  margin-top: 32px;
+  padding: 32px;
   background: #f8fafc;
-  border-radius: 12px;
-  color: #475569;
-  font-size: 14px;
+  border-radius: 20px;
+  color: #64748b;
+  font-size: 15px;
+  text-align: center;
+  box-shadow: inset 0 0 0 1px #e5e7eb;
 }
 </css>
         <data_table>sp_instance</data_table>
@@ -123,7 +155,7 @@
         <name>Instructor Course Cards</name>
         <option_schema/>
         <public>false</public>
-        <roles/>
+        <roles>x_1862243_training.training instructor</roles>
         <script><![CDATA[(function () {
 
   data.courses = [];
@@ -159,14 +191,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-01-11 06:26:55</sys_created_on>
         <sys_id>e137383a83de721084ade7d0deaad3d3</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>Instructor Course Cards</sys_name>
         <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
         <sys_policy/>
         <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
         <sys_update_name>sp_widget_e137383a83de721084ade7d0deaad3d3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-01-14 07:12:35</sys_updated_on>
+        <sys_updated_on>2026-01-15 08:50:26</sys_updated_on>
         <template><![CDATA[<div class="instructor-dashboard">
 
   <!-- Header -->
@@ -223,4 +255,15 @@
 </div>
 ]]></template>
     </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>e137383a83de721084ade7d0deaad3d3</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 08:50:24</sys_created_on>
+        <sys_id>9a6ebdc883e23a1084ade7d0deaad312</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-15 08:50:24</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
 </record_update>

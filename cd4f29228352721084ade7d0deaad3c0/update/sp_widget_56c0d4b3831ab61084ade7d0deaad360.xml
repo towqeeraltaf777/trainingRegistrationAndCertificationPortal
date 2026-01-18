@@ -3,16 +3,14 @@
         <category>custom</category>
         <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
         <controller_as>c</controller_as>
-        <css>/* Root */
-.instructor-course-detail {
+        <css>.instructor-course-detail {
   background: #ffffff;
-  border-radius: 18px;
-  padding: 26px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.08);
 }
 
-/* Header */
+/* HEADER */
 .course-header {
   display: flex;
   justify-content: space-between;
@@ -21,74 +19,202 @@
 }
 
 .course-title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
   color: #0f172a;
-  letter-spacing: 0.3px;
 }
 
-/* Status pill */
+.course-code {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 4px;
+}
+
 .course-status {
   padding: 6px 16px;
   border-radius: 999px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.4px;
 }
 
 .course-status.active {
-  background: #ecfdf5;
-  color: #065f46;
+  background: #dcfce7;
+  color: #166534;
 }
 
 .course-status.inactive {
-  background: #f3f4f6;
-  color: #4b5563;
+  background: #fee2e2;
+  color: #991b1b;
 }
 
-/* Metrics grid */
-.course-metrics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
-}
-
-/* Metric card */
-.metric-card {
+/* DESCRIPTION */
+.course-description {
   background: #f8fafc;
-  border-radius: 14px;
-  padding: 18px;
-  border: 1px solid #e5e7eb;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 18px;
+  padding: 18px 20px;
+  margin-bottom: 26px;
 }
 
-.metric-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.10);
-}
-
-/* Metric text */
-.metric-label {
+.course-description .label {
+  display: block;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
   color: #64748b;
   margin-bottom: 6px;
+}
+
+.course-description p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #334155;
+}
+
+/* METRICS GRID */
+/* ===============================
+   METRICS GRID – 3 PER ROW
+   =============================== */
+.course-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .course-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .course-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.metric-card {
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  border-radius: 20px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: inset 0 0 0 1px #e5e7eb;
+}
+
+.metric-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 8px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .metric-value {
-  font-size: 22px;
-  font-weight: 800;
-  color: #111827;
+  font-size: 18px;
+  font-weight: 900;
+  color: #0f172a;
 }
 
 .metric-sub {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  color: #6b7280;
-  margin-left: 4px;
+  color: #64748b;
+}
+
+/* ===============================
+   LEARNERS SECTION
+   =============================== */
+.learners-section {
+  margin-top: 36px;
+}
+
+.learners-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.learners-header h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.learners-header .count {
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+/* Learner row */
+.learner-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.learner-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.10);
+}
+
+.learner-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.learner-date {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* Status */
+.learner-status {
+  text-align: right;
+}
+
+.status-chip {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.status-chip.registered {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-chip.waitlisted {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-chip.completed {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.completion-date {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 4px;
 }
 </css>
         <data_table>sp_instance</data_table>
@@ -96,14 +222,14 @@
         <description/>
         <docs/>
         <field_list/>
-        <has_preview>false</has_preview>
+        <has_preview>true</has_preview>
         <id>instructor_course_detail</id>
         <internal>false</internal>
         <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
         <name>Instructor Course Detail</name>
         <option_schema/>
         <public>false</public>
-        <roles/>
+        <roles>x_1862243_training.training instructor</roles>
         <script><![CDATA[(function () {
 
   data.course = {};
@@ -112,22 +238,46 @@
   var courseId = $sp.getParameter('course_id');
   if (!courseId) return;
 
-  // Security check (important)
-  if (!gs.hasRole('x_1862243_training.training_instructor')) {
+  // Security check
+  if (!gs.hasRole('x_1862243_training.training instructor')) {
     return;
   }
 
+  /* =========================
+     COURSE DETAILS
+     ========================= */
   var courseGR = new GlideRecord('x_1862243_training_training_course_table');
-  if (courseGR.get(courseId)) {
+  if (!courseGR.get(courseId)) return;
 
-    data.course = {
-      name: courseGR.course_name.toString(),
-      status: courseGR.is_active ? 'Active' : 'Inactive',
-      maxSeats: courseGR.maximum_seats.toString(),
-      availableSeats: courseGR.available_seats.toString(),
-      startDate: courseGR.getDisplayValue('course_start_date'),
-      endDate: courseGR.getDisplayValue('course_end_date')
-    };
+  data.course = {
+    name: courseGR.getValue('course_name'),
+    code: courseGR.getValue('course_code'),
+    description: courseGR.getValue('course_description'),
+    category: courseGR.getDisplayValue('course_category'),
+    location: courseGR.getDisplayValue('location'),
+    duration: courseGR.getValue('duration_hours'),
+    status: courseGR.getValue('is_active') == '1' ? 'Active' : 'Inactive',
+    maxSeats: parseInt(courseGR.getValue('maximum_seats'), 10) || 0,
+    availableSeats: parseInt(courseGR.getValue('available_seats'), 10) || 0,
+    startDate: courseGR.getDisplayValue('course_start_date'),
+    endDate: courseGR.getDisplayValue('course_end_date')
+  };
+
+  /* =========================
+     LEARNERS LIST (INSTRUCTOR)
+     ========================= */
+  var regGR = new GlideRecord('x_1862243_training_training_registration_table');
+  regGR.addQuery('course', courseId);
+  regGR.orderBy('registration_date');
+  regGR.query();
+
+  while (regGR.next()) {
+    data.learners.push({
+      name: regGR.getDisplayValue('learner'),
+      status: regGR.getDisplayValue('registration_status'),
+      registeredOn: regGR.getDisplayValue('registration_date'),
+      completedOn: regGR.getDisplayValue('completion_date')
+    });
   }
 
 })();
@@ -137,20 +287,23 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-01-14 06:12:59</sys_created_on>
         <sys_id>56c0d4b3831ab61084ade7d0deaad360</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>Instructor Course Detail</sys_name>
         <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
         <sys_policy/>
         <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
         <sys_update_name>sp_widget_56c0d4b3831ab61084ade7d0deaad360</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-01-14 07:14:16</sys_updated_on>
+        <sys_updated_on>2026-01-15 13:05:13</sys_updated_on>
         <template><![CDATA[<div class="instructor-course-detail">
 
-  <!-- Header -->
+  <!-- HEADER -->
   <div class="course-header">
-    <div class="course-title">
-      {{data.course.name}}
+    <div>
+      <div class="course-title">{{data.course.name}}</div>
+      <div class="course-code" ng-if="data.course.code">
+        Code: {{data.course.code}}
+      </div>
     </div>
 
     <span class="course-status"
@@ -162,11 +315,17 @@
     </span>
   </div>
 
-  <!-- Meta Cards -->
+  <!-- DESCRIPTION -->
+  <div class="course-description" ng-if="data.course.description">
+    <span class="label">Description</span>
+    <p>{{data.course.description}}</p>
+  </div>
+
+  <!-- META GRID -->
   <div class="course-metrics">
 
     <div class="metric-card">
-      <div class="metric-label">Available Seats</div>
+      <div class="metric-label">Seats</div>
       <div class="metric-value">
         {{data.course.availableSeats}}
         <span class="metric-sub">/ {{data.course.maxSeats}}</span>
@@ -174,9 +333,30 @@
     </div>
 
     <div class="metric-card">
-      <div class="metric-label">Course Status</div>
+      <div class="metric-label">Duration</div>
       <div class="metric-value">
-        {{data.course.status}}
+        {{data.course.duration}} hrs
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-label">Category</div>
+      <div class="metric-value">
+        {{data.course.category || '—'}}
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-label">Location</div>
+      <div class="metric-value">
+        {{data.course.location || '—'}}
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-label">Start Date</div>
+      <div class="metric-value">
+        {{data.course.startDate || '—'}}
       </div>
     </div>
 
@@ -190,6 +370,61 @@
   </div>
 
 </div>
+
+<!-- ================= LEARNERS ================= -->
+<div class="learners-section">
+
+  <div class="learners-header">
+    <h4>Enrolled Learners</h4>
+    <span class="count">{{data.learners.length}} learners</span>
+  </div>
+
+  <div class="learners-list" ng-if="data.learners.length">
+
+    <div class="learner-row" ng-repeat="l in data.learners">
+
+      <div class="learner-info">
+        <div class="learner-name">{{l.name}}</div>
+        <div class="learner-date">
+          Registered on {{l.registeredOn}}
+        </div>
+      </div>
+
+      <div class="learner-status">
+        <span class="status-chip"
+              ng-class="{
+                'registered': l.status === 'Registered',
+                'waitlisted': l.status === 'Waitlisted',
+                'completed': l.status === 'Completed'
+              }">
+          {{l.status}}
+        </span>
+
+        <div class="completion-date" ng-if="l.completedOn">
+          Completed: {{l.completedOn}}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="empty-state" ng-if="!data.learners.length">
+    No learners have enrolled in this course yet.
+  </div>
+
+</div>
 ]]></template>
     </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>56c0d4b3831ab61084ade7d0deaad360</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 08:51:09</sys_created_on>
+        <sys_id>d59e3d0c83e23a1084ade7d0deaad341</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-15 08:51:09</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
 </record_update>

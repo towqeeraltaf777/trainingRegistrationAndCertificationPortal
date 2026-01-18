@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>Instructor Dashboard - Container 2</name>
+        <order>2</order>
+        <semantic_tag/>
+        <sp_page display_value="instructor_dashboard">e6d6f4f683de721084ade7d0deaad3b4</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 06:39:41</sys_created_on>
+        <sys_id>1c2af4fa83de721084ade7d0deaad3d0</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Instructor Dashboard - Container 2</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_container_1c2af4fa83de721084ade7d0deaad3d0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-15 05:29:19</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</application>
+        <file_path/>
+        <instance_id>07cd9a6f1b8ec21419254089bd4bcbe1</instance_id>
+        <instance_name>dev270043</instance_name>
+        <name>sp_container_1c2af4fa83de721084ade7d0deaad3d0</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>Instructor Dashboard - Container 2</name><order>2</order><semantic_tag/><sp_page display_value="instructor_dashboard">e6d6f4f683de721084ade7d0deaad3b4</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-11 06:39:41</sys_created_on><sys_id>1c2af4fa83de721084ade7d0deaad3d0</sys_id><sys_mod_count>4</sys_mod_count><sys_name>Instructor Dashboard - Container 2</sys_name><sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package><sys_policy/><sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope><sys_update_name>sp_container_1c2af4fa83de721084ade7d0deaad3d0</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-15 05:29:19</sys_updated_on><title/><width>container</width></sp_container></record_update>]]></payload>
+        <payload_hash>-63751148</payload_hash>
+        <record_name>Instructor Dashboard - Container 2</record_name>
+        <reverted_from/>
+        <source>12b479a68352721084ade7d0deaad3a8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 05:29:19</sys_created_on>
+        <sys_id>2c60590083223a1084ade7d0deaad3e5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19bc021307b0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-15 05:29:19</sys_updated_on>
+        <type>Container</type>
+        <update_guid>a06059004d223a10e63bf2d7a8323fe5</update_guid>
+        <update_guid_history>a06059004d223a10e63bf2d7a8323fe5:-63751148,f5a43c3352dab6104af5696392494c5d:-1639465899,50fa2437d79ab61074282590c328730b:-63751148,4c13683b3c5ab610b2afcb195f16d7a3:490326816,c8a659fe5d52b210148531a14f387d0f:-63751148,858619feea52b2104ef47adebc329397:1511963603,902af4fa03de7210fa0a4598dc07f9d2:-63751148</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Instructor Dashboard - Container 2">48f0954083223a1084ade7d0deaad39e</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 05:31:45</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>b88443c066614fa8b3abf2debfa02e40</sys_id>
+        <sys_metadata>1c2af4fa83de721084ade7d0deaad3d0</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Instructor Dashboard - Container 2</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_scope_delete display_value="">1178d0d3e3c340d49d32d5c69a8fc8a4</sys_scope_delete>
+        <sys_update_name>sp_container_1c2af4fa83de721084ade7d0deaad3d0</sys_update_name>
+        <sys_update_version display_value="sp_container_1c2af4fa83de721084ade7d0deaad3d0">2c60590083223a1084ade7d0deaad3e5</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-15 05:31:45</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

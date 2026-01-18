@@ -13,9 +13,9 @@
         <inactive>false</inactive>
         <kb_knowledge_base/>
         <kb_knowledge_page/>
-        <login_page/>
+        <login_page display_value="access_denied">cb9d0d0c83eef61084ade7d0deaad3ba</login_page>
         <logo>145b48638356761084ade7d0deaad33f</logo>
-        <notfound_page/>
+        <notfound_page display_value="access_denied">cb9d0d0c83eef61084ade7d0deaad3ba</notfound_page>
         <quick_start_config/>
         <rtl_enabled>false</rtl_enabled>
         <sc_catalog/>
@@ -29,14 +29,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-01-13 10:26:27</sys_created_on>
         <sys_id>20e000678316761084ade7d0deaad30c</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>Training Registration Portal</sys_name>
         <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
         <sys_policy/>
         <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
         <sys_update_name>sp_portal_20e000678316761084ade7d0deaad30c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-01-13 11:15:12</sys_updated_on>
+        <sys_updated_on>2026-01-15 06:39:27</sys_updated_on>
         <theme display_value="La Jolla">a7a6e78277002300a6e592718a10617a</theme>
         <title>Training Registration Portal</title>
         <ts_index_group/>

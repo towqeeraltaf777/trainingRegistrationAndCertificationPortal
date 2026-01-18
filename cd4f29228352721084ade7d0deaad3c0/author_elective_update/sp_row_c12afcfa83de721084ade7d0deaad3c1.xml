@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_row">
+    <sp_row action="DELETE">
+        <class_name/>
+        <order>1</order>
+        <semantic_tag/>
+        <sp_column/>
+        <sp_container display_value="Instructor Dashboard - Container 2">1c2af4fa83de721084ade7d0deaad3d0</sp_container>
+        <sys_class_name>sp_row</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-11 06:39:43</sys_created_on>
+        <sys_id>c12afcfa83de721084ade7d0deaad3c1</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_row_c12afcfa83de721084ade7d0deaad3c1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 08:49:37</sys_updated_on>
+    </sp_row>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</application>
+        <file_path/>
+        <instance_id>07cd9a6f1b8ec21419254089bd4bcbe1</instance_id>
+        <instance_name>dev270043</instance_name>
+        <name>sp_row_c12afcfa83de721084ade7d0deaad3c1</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_row"><sp_row action="INSERT_OR_UPDATE"><class_name/><order>1</order><semantic_tag/><sp_column/><sp_container display_value="Instructor Dashboard - Container 2">1c2af4fa83de721084ade7d0deaad3d0</sp_container><sys_class_name>sp_row</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-11 06:39:43</sys_created_on><sys_id>c12afcfa83de721084ade7d0deaad3c1</sys_id><sys_mod_count>2</sys_mod_count><sys_name>1</sys_name><sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package><sys_policy/><sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope><sys_update_name>sp_row_c12afcfa83de721084ade7d0deaad3c1</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-14 08:49:37</sys_updated_on></sp_row></record_update>]]></payload>
+        <payload_hash>-319783242</payload_hash>
+        <record_name>1</record_name>
+        <reverted_from/>
+        <source>12b479a68352721084ade7d0deaad3a8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 08:49:37</sys_created_on>
+        <sys_id>85a4fc3383dab61084ade7d0deaad302</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19bbbb237ad0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 08:49:37</sys_updated_on>
+        <type>Row</type>
+        <update_guid>0da4fc33efdab6102d7c9e68fc475c01</update_guid>
+        <update_guid_history>0da4fc33efdab6102d7c9e68fc475c01:-319783242,7374f833a9dab610ce13e49fa186af08:-442787306,410ce877b49ab610587ff2ba54aedc1b:-319783242,6b5a3c3ef9de72100662f9d3984220af:416635809,892afcfa8ade72100ad4684948c79bc2:-319783242</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="1">d3e0518083223a1084ade7d0deaad35a</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 05:31:41</sys_created_on>
+        <sys_db_object display_value="" name="sp_row">sp_row</sys_db_object>
+        <sys_id>486882173ee64d80b981f5c1262aed10</sys_id>
+        <sys_metadata>c12afcfa83de721084ade7d0deaad3c1</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_scope_delete display_value="">1178d0d3e3c340d49d32d5c69a8fc8a4</sys_scope_delete>
+        <sys_update_name>sp_row_c12afcfa83de721084ade7d0deaad3c1</sys_update_name>
+        <sys_update_version display_value="sp_row_c12afcfa83de721084ade7d0deaad3c1">85a4fc3383dab61084ade7d0deaad302</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-15 05:31:41</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

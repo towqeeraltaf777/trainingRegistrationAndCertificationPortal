@@ -1,7 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <client_script><![CDATA[function ($scope, $timeout) {
+	var c = this;
+
+	// Load Chart.js dynamically
+	function loadChartJs(callback) {
+		if (window.Chart) {
+			callback();
+			return;
+		}
+
+		var script = document.createElement('script');
+		script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+		script.onload = callback;
+		document.head.appendChild(script);
+	}
+
+	// Render charts
+	function renderCharts() {
+
+		// Donut chart
+		new Chart(document.getElementById('seatDonut'), {
+			type: 'doughnut',
+			data: {
+				labels: [
+					'Active Courses',
+					'Inactive Courses',
+					'Total Registrations',
+					'Total Waitlisted'
+				],
+				datasets: [{
+					data: [
+						c.data.activeCourses,
+						c.data.inactiveCourses,   // ✅ NEW
+						c.data.totalRegistrations,
+						c.data.totalWaitlisted
+					],
+					backgroundColor: [
+						'#2563eb', // Active Courses - blue
+						'#dc2626', // Inactive Courses - RED ]]>🔴
+<![CDATA[						'#16a34a', // Total Registrations - green
+						'#f59e0b'  // Total Waitlisted - amber
+					],
+					borderWidth: 0
+				}]
+			},
+			options: {
+				cutout: '70%',
+				plugins: {
+					legend: {
+						position: 'bottom'
+					}
+				}
+			}
+		});
+
+
+
+
+		// Bar chart
+		new Chart(document.getElementById('fillBar'), {
+			type: 'bar',
+			data: {
+				labels: c.data.chartData.courses,
+				datasets: [{
+					label: 'Filled %',
+					data: c.data.chartData.filled,
+					backgroundColor: '#60a5fa',
+					borderRadius: 8
+				}]
+			},
+			options: {
+				scales: {
+					y: {
+						beginAtZero: true,
+						max: 100
+					}
+				},
+				plugins: {
+					legend: { display: false }
+				}
+			}
+		});
+	}
+
+	// Wait for DOM + data
+	$timeout(function () {
+		loadChartJs(renderCharts);
+	}, 0);
+}
+]]></client_script>
         <controller_as>c</controller_as>
         <css>.report-wrapper {
   background: #f1f5f9;
@@ -9,14 +98,47 @@
   padding: 22px;
 }
 
+/* =========================
+   CHART SECTION
+========================= */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 40px; /* 🔥 GAP between charts and summary */
+}
+
+.chart-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.chart-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+canvas {
+  max-height: 260px;
+}
+
+/* =========================
+   SUMMARY CARDS
+========================= */
 .report-summary {
-  margin-bottom: 22px;
+  margin-top: 10px;
+  margin-bottom: 30px; /* 🔥 GAP before table */
 }
 
 .summary-card {
   background: #ffffff;
   border-radius: 14px;
-  padding: 18px;
+  padding: 22px; /* slightly increased */
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -41,6 +163,9 @@
   color: #0f172a;
 }
 
+/* =========================
+   TABLE
+========================= */
 .report-table {
   border-collapse: collapse;
 }
@@ -81,14 +206,19 @@
   background: #e5e7eb;
   color: #374151;
 }
+.summary-card h4 {
+  text-transform: uppercase;
+}
+
+.summary-card:nth-child(2) .summary-number {
+  color: #dc2626; /* red for inactive */
+}
+
 
 .filled-text {
   font-weight: 600;
   color: #16a34a;
 }
-
-
-
 </css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -105,40 +235,55 @@
         <roles/>
         <script><![CDATA[(function () {
 
-    data.reports = [];
-    data.activeCourses = 0;
+    /* -------------------------------
+       SUMMARY CARDS (TOP)
+    -------------------------------- */
+  data.inactiveCourses = 0;  
+	data.activeCourses = 0;
     data.totalRegistrations = 0;
-    data.totalWaitlisted = 0; // Initialize new metric
+    data.totalWaitlisted = 0;
+
+    /* -------------------------------
+       TABLE DATA
+    -------------------------------- */
+    data.reports = [];
+
+    /* -------------------------------
+       DONUT CHART DATA
+    -------------------------------- */
+    data.summary = {
+        registered: 0,
+        waitlisted: 0,
+        available: 0
+    };
+
+    /* -------------------------------
+       BAR CHART DATA
+    -------------------------------- */
+    data.chartData = {
+        courses: [],
+        filled: []
+    };
 
     var courseGR = new GlideRecord('x_1862243_training_training_course_table');
-    
-    if (!courseGR.isValid()) {
-        return; 
-    }
-    
     courseGR.query();
 
     while (courseGR.next()) {
+
         var registered = 0;
         var waitlisted = 0;
 
         var regAgg = new GlideAggregate('x_1862243_training_training_registration_table');
-        
-        if (regAgg.isValid()) {
-            regAgg.addQuery('course', courseGR.getUniqueValue());
-            regAgg.addAggregate('COUNT', 'registration_status'); 
-            regAgg.query();
+        regAgg.addQuery('course', courseGR.getUniqueValue());
+        regAgg.addAggregate('COUNT', 'registration_status');
+        regAgg.query();
 
-            while (regAgg.next()) {
-                var status = regAgg.registration_status.toString();
-                var count = parseInt(regAgg.getAggregate('COUNT', 'registration_status'), 10) || 0;
+        while (regAgg.next()) {
+            var status = regAgg.registration_status.toString();
+            var count = parseInt(regAgg.getAggregate('COUNT', 'registration_status'), 10) || 0;
 
-                if (status === 'registered') {
-                    registered = count;
-                } else if (status === 'waitlisted') {
-                    waitlisted = count;
-                }
-            }
+            if (status === 'registered') registered = count;
+            if (status === 'waitlisted') waitlisted = count;
         }
 
         var maxSeats = parseInt(courseGR.getValue('maximum_seats'), 10) || 0;
@@ -148,15 +293,23 @@
             ? Math.round(((maxSeats - availableSeats) / maxSeats) * 100)
             : 0;
 
-        var isActive = (courseGR.getValue('is_active') == '1' || courseGR.getValue('is_active') == true);
-        if (isActive) {
-            data.activeCourses++;
-        }
+        var isActive = courseGR.getValue('is_active') == '1';
 
-        // Add to totals
+        /* -------------------------------
+           SUMMARY CARDS COUNTERS
+        -------------------------------- */
+if (isActive) {
+    data.activeCourses++;
+} else {
+    data.inactiveCourses++; // ✅ NEW
+}
+
         data.totalRegistrations += registered;
-        data.totalWaitlisted += waitlisted; // Accumulate total waitlist
+        data.totalWaitlisted += waitlisted;
 
+        /* -------------------------------
+           TABLE
+        -------------------------------- */
         data.reports.push({
             course: courseGR.getDisplayValue('course_name'),
             status: isActive ? 'Active' : 'Inactive',
@@ -166,54 +319,97 @@
             waitlisted: waitlisted,
             filled: filledPercent + '%'
         });
+
+        /* -------------------------------
+           DONUT TOTALS
+        -------------------------------- */
+        data.summary.registered += registered;
+        data.summary.waitlisted += waitlisted;
+        data.summary.available += availableSeats;
+
+        /* -------------------------------
+           BAR CHART
+        -------------------------------- */
+        data.chartData.courses.push(courseGR.getDisplayValue('course_name'));
+        data.chartData.filled.push(filledPercent);
     }
 
-})();]]></script>
+})();
+]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-01-11 04:41:04</sys_created_on>
         <sys_id>fafed4ba835e721084ade7d0deaad320</sys_id>
-        <sys_mod_count>31</sys_mod_count>
+        <sys_mod_count>42</sys_mod_count>
         <sys_name>Admin Dashboard Reports</sys_name>
         <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
         <sys_policy/>
         <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
         <sys_update_name>sp_widget_fafed4ba835e721084ade7d0deaad320</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-01-13 17:08:50</sys_updated_on>
+        <sys_updated_on>2026-01-14 15:13:58</sys_updated_on>
         <template><![CDATA[<div class="report-wrapper">
 
+  <!-- HEADER -->
   <div class="report-header">
     <h3>Admin Dashboard Report</h3>
   </div>
 
-  <div class="row report-summary">
-    <div class="col-md-4">
-      <div class="summary-card">
-        <h4>Active Courses</h4>
-        <p class="summary-number">{{data.activeCourses}}</p>
-      </div>
+  <!-- CHARTS -->
+  <div class="chart-grid">
+
+    <div class="chart-card">
+      <h4>Admin Summary</h4>
+      <canvas id="seatDonut"></canvas>
     </div>
 
-    <div class="col-md-4">
-      <div class="summary-card">
-        <h4>Total Registrations</h4>
-        <p class="summary-number">{{data.totalRegistrations}}</p>
-      </div>
+    <div class="chart-card">
+      <h4>Course Fill %</h4>
+      <canvas id="fillBar"></canvas>
     </div>
 
-    <div class="col-md-4">
-      <div class="summary-card">
-        <h4>Total Waitlisted</h4>
-        <p class="summary-number">{{data.totalWaitlisted}}</p>
-      </div>
+  </div>
+
+  <!-- SUMMARY CARDS -->
+ <div class="row report-summary">
+
+  <div class="col-md-3">
+    <div class="summary-card">
+      <h4>Active Courses</h4>
+      <p class="summary-number">{{data.activeCourses}}</p>
     </div>
   </div>
 
+  <div class="col-md-3">
+    <div class="summary-card">
+      <h4>Inactive Courses</h4>
+      <p class="summary-number">{{data.inactiveCourses}}</p>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="summary-card">
+      <h4>Total Registrations</h4>
+      <p class="summary-number">{{data.totalRegistrations}}</p>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="summary-card">
+      <h4>Total Waitlisted</h4>
+      <p class="summary-number">{{data.totalWaitlisted}}</p>
+    </div>
+  </div>
+
+</div>
+
+
+  <!-- TABLE -->
   <div class="report-body">
     <div class="table-responsive">
       <table class="table report-table">
+
         <thead>
           <tr>
             <th>Course</th>
@@ -225,10 +421,13 @@
             <th>Filled %</th>
           </tr>
         </thead>
+
         <tbody>
           <tr ng-repeat="r in data.reports">
             <td class="course-name">{{r.course}}</td>
-            <td><span class="status-label">{{r.status}}</span></td>
+            <td>
+              <span class="status-label">{{r.status}}</span>
+            </td>
             <td>{{r.maxSeats}}</td>
             <td>{{r.availableSeats}}</td>
             <td>{{r.registered}}</td>
@@ -236,10 +435,23 @@
             <td class="filled-text">{{r.filled}}</td>
           </tr>
         </tbody>
+
       </table>
     </div>
   </div>
 
-</div>]]></template>
+</div>
+]]></template>
     </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>fafed4ba835e721084ade7d0deaad320</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 08:47:58</sys_created_on>
+        <sys_id>a2ddf10c83e23a1084ade7d0deaad35a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-15 08:47:58</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
 </record_update>

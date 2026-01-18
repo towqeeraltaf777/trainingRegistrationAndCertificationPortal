@@ -1,7 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
     <sp_page action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <css/>
+        <css>/* ================================================= */
+/* TRAINING REGISTRATION PORTAL – LEFT SIDEBAR */
+/* ================================================= */
+
+.app-sidebar {
+  background: linear-gradient(180deg, #111827, #1e1b4b);
+  padding: 24px 16px;
+  min-height: 95vh;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25);
+}
+
+/* ================================================= */
+/* SIDEBAR TITLE (UNCHANGED) */
+/* ================================================= */
+
+.app-sidebar::before {
+  content: "TRAINING REGISTRATION PORTAL";
+  align-self: stretch;
+  font-size: 12px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 1.4px;
+  margin-bottom: 26px;
+  padding-left: 12px;
+  border-left: 3px solid #6366f1;
+  text-align: left;
+}
+
+/* ================================================= */
+/* LINK BUTTONS – ADMIN / INSTRUCTOR / USER */
+/* ================================================= */
+
+.app-sidebar a,
+.app-sidebar .btn {
+  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 220px !important;
+  height: 52px !important;
+
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #e5e7eb !important;
+
+  padding: 0 !important; /* IMPORTANT FOR EQUAL SIZE */
+  border-radius: 999px !important;
+
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+  backdrop-filter: blur(10px);
+}
+
+/* ================================================= */
+/* DIVIDER ABOVE FIRST BUTTON */
+/* ================================================= */
+
+.app-sidebar a:first-of-type::before,
+.app-sidebar .btn:first-of-type::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+}
+
+/* ================================================= */
+/* HOVER STATE */
+/* ================================================= */
+
+.app-sidebar a:hover,
+.app-sidebar .btn:hover {
+  background: rgba(99, 102, 241, 0.18) !important;
+  border-color: rgba(99, 102, 241, 0.45) !important;
+  color: #ffffff !important;
+  transform: translateX(4px);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.25);
+}
+
+/* ================================================= */
+/* ACTIVE STATE */
+/* ================================================= */
+
+.app-sidebar a.active,
+.app-sidebar .btn.active {
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.35),
+    rgba(79, 70, 229, 0.45)
+  ) !important;
+  border-color: rgba(99, 102, 241, 0.6) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 22px rgba(99, 102, 241, 0.35);
+}
+</css>
         <draft>false</draft>
         <dynamic_title_structure/>
         <human_readable_url_structure/>
@@ -16,14 +126,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-01-13 10:36:37</sys_created_on>
         <sys_id>a473042b8316761084ade7d0deaad35e</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>home_training</sys_name>
         <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
         <sys_policy/>
         <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
         <sys_update_name>sp_page_a473042b8316761084ade7d0deaad35e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-01-13 11:11:52</sys_updated_on>
+        <sys_updated_on>2026-01-16 03:20:16</sys_updated_on>
         <title>Training Portal Home</title>
         <use_seo_script>false</use_seo_script>
     </sp_page>

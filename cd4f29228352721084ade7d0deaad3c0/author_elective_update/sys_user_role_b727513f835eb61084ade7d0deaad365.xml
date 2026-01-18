@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role">
+    <sys_user_role action="DELETE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description>Admin for home traning in Project</description>
+        <elevated_privilege>false</elevated_privilege>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_1862243_training.Admin Home Traning</name>
+        <scoped_admin>false</scoped_admin>
+        <suffix>Admin Home Traning</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 11:21:20</sys_created_on>
+        <sys_id>b727513f835eb61084ade7d0deaad365</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1862243_training.Admin Home Traning</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sys_user_role_b727513f835eb61084ade7d0deaad365</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 11:21:20</sys_updated_on>
+    </sys_user_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</application>
+        <file_path/>
+        <instance_id>07cd9a6f1b8ec21419254089bd4bcbe1</instance_id>
+        <instance_name>dev270043</instance_name>
+        <name>sys_user_role_b727513f835eb61084ade7d0deaad365</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role"><sys_user_role action="INSERT_OR_UPDATE"><assignable_by/><can_delegate>true</can_delegate><description>Admin for home traning in Project</description><elevated_privilege>false</elevated_privilege><grantable>true</grantable><includes_roles/><name>x_1862243_training.Admin Home Traning</name><scoped_admin>false</scoped_admin><suffix>Admin Home Traning</suffix><sys_class_name>sys_user_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-14 11:21:20</sys_created_on><sys_id>b727513f835eb61084ade7d0deaad365</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_1862243_training.Admin Home Traning</sys_name><sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package><sys_policy/><sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope><sys_update_name>sys_user_role_b727513f835eb61084ade7d0deaad365</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-14 11:21:20</sys_updated_on></sys_user_role></record_update>]]></payload>
+        <payload_hash>1886624221</payload_hash>
+        <record_name>x_1862243_training.Admin Home Traning</record_name>
+        <reverted_from/>
+        <source>12b479a68352721084ade7d0deaad3a8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 11:21:20</sys_created_on>
+        <sys_id>af575dfb835eb61084ade7d0deaad396</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19bbc3d1f5e0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 11:21:20</sys_updated_on>
+        <type>Role</type>
+        <update_guid>a3575dfb045eb610b2f711743da0ef96</update_guid>
+        <update_guid_history>a3575dfb045eb610b2f711743da0ef96:1886624221</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_1862243_training.Admin Home Traning">f6a6f8cc836ef61084ade7d0deaad3f7</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 03:36:59</sys_created_on>
+        <sys_db_object display_value="" name="sys_user_role">sys_user_role</sys_db_object>
+        <sys_id>1b1b0296b9144be8a8a4635088ac5d41</sys_id>
+        <sys_metadata>b727513f835eb61084ade7d0deaad365</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1862243_training.Admin Home Traning</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_scope_delete display_value="">1178d0d3e3c340d49d32d5c69a8fc8a4</sys_scope_delete>
+        <sys_update_name>sys_user_role_b727513f835eb61084ade7d0deaad365</sys_update_name>
+        <sys_update_version display_value="sys_user_role_b727513f835eb61084ade7d0deaad365">af575dfb835eb61084ade7d0deaad396</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-15 03:36:59</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

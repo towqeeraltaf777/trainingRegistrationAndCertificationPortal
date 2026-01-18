@@ -1,92 +1,247 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <client_script><![CDATA[function ($scope, $timeout) {
+  var c = this;
+
+  function loadChartJs(cb) {
+    if (window.Chart) return cb();
+
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js';
+    s.onload = cb;
+    document.head.appendChild(s);
+  }
+
+  function renderChart() {
+
+    var values = [
+      c.data.userStats.registered,
+      c.data.userStats.completed,
+      c.data.userStats.upcoming,
+      c.data.userStats.certificates
+    ];
+
+    var hasData = values.some(v => v > 0);
+
+    new Chart(document.getElementById('userOverviewDonut'), {
+      type: 'doughnut',
+      data: {
+        labels: hasData
+          ? ['Registered', 'Completed', 'Upcoming', 'Certificates']
+          : ['No activity yet'],
+        datasets: [{
+          data: hasData ? values : [1],
+          backgroundColor: hasData
+            ? ['#2563eb', '#16a34a', '#f59e0b', '#9333ea']
+            : ['#e5e7eb'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        cutout: '70%',
+        plugins: {
+          legend: {
+            display: hasData,
+            position: 'bottom'
+          },
+          tooltip: {
+            enabled: hasData
+          }
+        }
+      }
+    });
+  }
+
+  $timeout(function () {
+    loadChartJs(renderChart);
+  }, 300);
+}
+]]></client_script>
         <controller_as>c</controller_as>
-        <css>/* Card container */
-.my-courses-card {
+        <css>/* ===============================
+   USER OVERVIEW (CARDS + DONUT)
+   =============================== */
+
+.user-overview-card {
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr;   /* Balance cards vs donut */
+  gap: 28px;
   background: #ffffff;
-  border-radius: 14px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-  padding: 20px;
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+  margin-bottom: 36px;
 }
 
-/* Header */
-.my-courses-header {
-  margin-bottom: 16px;
-}
-
-.my-courses-header h3 {
-  margin: 0;
+/* Left title */
+.overview-left h3 {
   font-size: 18px;
   font-weight: 700;
   color: #0f172a;
+  margin-bottom: 18px;
 }
 
-.my-courses-header .subtitle {
+/* Big stat cards */
+.big-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.big-stat {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 20px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.big-stat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+
+.big-stat .label {
   font-size: 13px;
   color: #64748b;
-  margin-top: 4px;
 }
 
-/* Table wrapper */
-.table-wrapper {
-  overflow-x: auto;
-}
-
-/* Modern table */
-.modern-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.modern-table thead th {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #64748b;
-  padding: 12px 10px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.modern-table tbody td {
-  padding: 14px 10px;
-  font-size: 14px;
-  color: #374151;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-/* Course name emphasis */
-.course-name {
-  font-weight: 600;
+.big-stat .value {
+  font-size: 28px;
+  font-weight: 800;
   color: #0f172a;
 }
 
-/* Status chips */
-.status-chip {
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
+/* Right side (donut container) */
+.overview-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* 🔥 CONTROL DONUT SIZE */
+#userOverviewDonut {
+  width: 220px !important;
+  height: 220px !important;
+  max-width: 220px;
+  max-height: 220px;
+}
+
+
+/* ===============================
+   MY REGISTERED COURSES
+   =============================== */
+
+.my-courses-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+}
+
+/* Header */
+.my-courses-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.my-courses-header .subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 18px;
+}
+
+/* Course list */
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Course card */
+.course-item {
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr 1fr;
+  align-items: center;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: #f8fafc;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.course-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+
+/* Course info */
+.course-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.course-meta {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* Status */
+.course-status {
+  text-align: center;
+}
+
+.status-chip {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+/* Status colors */
 .status-chip.registered {
-  background: #ecfdf5;
-  color: #065f46;
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-chip.completed {
+  background: #e0f2fe;
+  color: #075985;
 }
 
 .status-chip.waitlisted {
-  background: #fffbeb;
+  background: #fef3c7;
   color: #92400e;
+}
+
+/* Completion */
+.course-completion {
+  text-align: right;
+}
+
+.completion-label {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.completion-date {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
 }
 
 /* Empty state */
 .empty-state {
   text-align: center;
-  padding: 30px;
-  color: #64748b;
+  padding: 40px 20px;
   font-size: 14px;
+  color: #64748b;
 }
 </css>
         <data_table>sp_instance</data_table>
@@ -104,34 +259,50 @@
         <roles/>
         <script><![CDATA[(function () {
 
-    data.courses = [];
+  data.courses = [];
 
-    var regGR = new GlideRecord('x_1862243_training_training_registration_table');
-    regGR.addQuery('learner', gs.getUserID());
-    regGR.orderByDesc('registration_date');
-    regGR.query();
+  // Stats
+  data.userStats = {
+    registered: 0,
+    completed: 0,
+    upcoming: 0,
+    certificates: 0
+  };
 
-    while (regGR.next()) {
+  var today = new GlideDateTime();
 
-        var courseName = '—';
+  var regGR = new GlideRecord('x_1862243_training_training_registration_table');
+  regGR.addQuery('learner', gs.getUserID());
+  regGR.orderByDesc('registration_date');
+  regGR.query();
 
-        // ✅ confirmed reference field
-        var courseSysId = regGR.getValue('course_name');
+  while (regGR.next()) {
 
-        if (courseSysId) {
-            var courseGR = new GlideRecord('x_1862243_training_training_course_table');
-            if (courseGR.get(courseSysId)) {
-                courseName = courseGR.getValue('course_name');
-            }
-        }
+    var status = regGR.getValue('registration_status');
+    var completionDate = regGR.getValue('completion_date');
 
-        data.courses.push({
-            course_name: courseName,
-            status: regGR.getDisplayValue('registration_status'),
-            registered_on: regGR.getDisplayValue('registration_date'),
-            completion_date: regGR.getDisplayValue('completion_date')
-        });
+    // Count logic
+    if (status === 'registered') {
+      data.userStats.registered++;
+      data.userStats.upcoming++;
     }
+
+    if (status === 'completed') {
+      data.userStats.completed++;
+      data.userStats.certificates++;
+    }
+
+    if (status === 'waitlisted') {
+      // optional future stat
+    }
+
+    data.courses.push({
+      course_name: regGR.getDisplayValue('course'),
+      status: regGR.getDisplayValue('registration_status'),
+      registered_on: regGR.getDisplayValue('registration_date'),
+      completion_date: regGR.getDisplayValue('completion_date')
+    });
+  }
 
 })();
 ]]></script>
@@ -140,62 +311,89 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-01-11 06:49:58</sys_created_on>
         <sys_id>727c34fe83de721084ade7d0deaad3cb</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>25</sys_mod_count>
         <sys_name>My Registered Courses</sys_name>
         <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
         <sys_policy/>
         <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
         <sys_update_name>sp_widget_727c34fe83de721084ade7d0deaad3cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-01-14 09:39:36</sys_updated_on>
-        <template><![CDATA[<div class="my-courses-card">
+        <sys_updated_on>2026-01-14 16:53:22</sys_updated_on>
+        <template><![CDATA[<!-- ================= USER OVERVIEW ================= -->
+<div class="user-overview-card">
 
-  <!-- Header -->
+  <div class="overview-left">
+    <h3>User Course Overview</h3>
+
+    <div class="big-stats">
+      <div class="big-stat">
+        <span class="label">Registered</span>
+        <span class="value">{{data.userStats.registered}}</span>
+      </div>
+
+      <div class="big-stat">
+        <span class="label">Completed</span>
+        <span class="value">{{data.userStats.completed}}</span>
+      </div>
+
+      <div class="big-stat">
+        <span class="label">Upcoming</span>
+        <span class="value">{{data.userStats.upcoming}}</span>
+      </div>
+
+      <div class="big-stat">
+        <span class="label">Certificates</span>
+        <span class="value">{{data.userStats.certificates}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="overview-right">
+    <canvas id="userOverviewDonut"></canvas>
+  </div>
+
+</div>
+
+<!-- ================= MY COURSES ================= -->
+<div class="my-courses-card">
+
   <div class="my-courses-header">
     <h3>My Registered Courses</h3>
     <p class="subtitle">Courses you have enrolled in</p>
   </div>
 
-  <!-- TABLE -->
-  <div class="table-wrapper" ng-if="data.courses.length">
+  <div class="course-list" ng-if="data.courses.length">
 
-    <table class="modern-table">
-      <thead>
-        <tr>
-          <th>Course</th>
-          <th>Status</th>
-          <th>Registered On</th>
-          <th>Completion Date</th>
-        </tr>
-      </thead>
+    <div class="course-item" ng-repeat="c in data.courses">
 
-      <tbody>
-        <tr ng-repeat="c in data.courses">
-          <td class="course-name">
-            {{c.course_name}}
-          </td>
+      <div class="course-info">
+        <div class="course-name">{{c.course_name}}</div>
+        <div class="course-meta">
+          Registered on {{c.registered_on}}
+        </div>
+      </div>
 
-          <td>
-<span class="status-chip"
-      ng-class="{
-        'registered': c.status.toLowerCase() === 'registered',
-        'waitlisted': c.status.toLowerCase() === 'waitlisted'
-      }">
-  {{c.status | uppercase}}
-</span>
+      <div class="course-status">
+        <span class="status-chip"
+              ng-class="{
+                'registered': c.status.toLowerCase() === 'registered',
+                'waitlisted': c.status.toLowerCase() === 'waitlisted',
+                'completed': c.status.toLowerCase() === 'completed'
+              }">
+          {{c.status | uppercase}}
+        </span>
+      </div>
 
+      <div class="course-completion">
+        <span class="completion-label">Completion</span>
+        <span class="completion-date">
+          {{c.completion_date || '—'}}
+        </span>
+      </div>
 
-          </td>
-
-          <td>{{c.registered_on}}</td>
-          <td>{{c.completion_date || '—'}}</td>
-        </tr>
-      </tbody>
-    </table>
-
+    </div>
   </div>
 
-  <!-- EMPTY STATE -->
   <div class="empty-state" ng-if="!data.courses.length">
     You have not registered for any courses yet.
   </div>
@@ -203,4 +401,15 @@
 </div>
 ]]></template>
     </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>727c34fe83de721084ade7d0deaad3cb</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 08:51:48</sys_created_on>
+        <sys_id>aabebd4c83e23a1084ade7d0deaad3c3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-15 08:51:48</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
 </record_update>

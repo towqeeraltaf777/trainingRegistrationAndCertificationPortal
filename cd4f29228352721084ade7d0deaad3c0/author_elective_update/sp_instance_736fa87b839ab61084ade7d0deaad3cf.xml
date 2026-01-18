@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>primary</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">a70a8deb835a761084ade7d0deaad3a9</sp_column>
+        <sp_widget display_value="link-button">abc50de6d702120023c84f80de61036a</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 08:26:53</sys_created_on>
+        <sys_id>736fa87b839ab61084ade7d0deaad3cf</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_instance_736fa87b839ab61084ade7d0deaad3cf</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 08:41:16</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"href": {
+		"value": "?id=active_courses",
+		"displayValue": "?id=active_courses"
+	},
+	"button_text": {
+		"value": "Active Courses",
+		"displayValue": "Active Courses"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=736fa87b839ab61084ade7d0deaad3cf"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</application>
+        <file_path/>
+        <instance_id>07cd9a6f1b8ec21419254089bd4bcbe1</instance_id>
+        <instance_name>dev270043</instance_name>
+        <name>sp_instance_736fa87b839ab61084ade7d0deaad3cf</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;primary&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;a70a8deb835a761084ade7d0deaad3a9&lt;/sp_column&gt;&lt;sp_widget display_value="link-button"&gt;abc50de6d702120023c84f80de61036a&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-01-14 08:26:53&lt;/sys_created_on&gt;&lt;sys_id&gt;736fa87b839ab61084ade7d0deaad3cf&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training"&gt;cd4f29228352721084ade7d0deaad3c0&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Training Registration and Certification Portal"&gt;cd4f29228352721084ade7d0deaad3c0&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_736fa87b839ab61084ade7d0deaad3cf&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-01-14 08:41:16&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"href": {
+		"value": "?id=active_courses",
+		"displayValue": "?id=active_courses"
+	},
+	"button_text": {
+		"value": "Active Courses",
+		"displayValue": "Active Courses"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=736fa87b839ab61084ade7d0deaad3cf"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>785029531</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>12b479a68352721084ade7d0deaad3a8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 08:41:16</sys_created_on>
+        <sys_id>26b234bf839ab61084ade7d0deaad3a9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19bbbaa90410000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 08:41:16</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>aab234bf3f9ab6108058f4b8bad829a8</update_guid>
+        <update_guid_history>aab234bf3f9ab6108058f4b8bad829a8:785029531,377230bf219ab61032fbc6aa109fc6c4:-258983579,8adf64bb659ab610db02af052bf08cfb:-2010549163,519fac7bd59ab61063e06b67815991ff:1203167085,3f6fa87b359ab61041a67a16b0cec9d0:1030347044</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">51fc4e3f8352f61084ade7d0deaad38c</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-14 15:15:29</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>35abd0200dcc4c65880877db582cc369</sys_id>
+        <sys_metadata>736fa87b839ab61084ade7d0deaad3cf</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_scope_delete display_value="">1178d0d3e3c340d49d32d5c69a8fc8a4</sys_scope_delete>
+        <sys_update_name>sp_instance_736fa87b839ab61084ade7d0deaad3cf</sys_update_name>
+        <sys_update_version display_value="sp_instance_736fa87b839ab61084ade7d0deaad3cf">26b234bf839ab61084ade7d0deaad3a9</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-14 15:15:29</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

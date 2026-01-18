@@ -16,187 +16,248 @@
 };
 ]]></client_script>
         <controller_as>c</controller_as>
-        <css>.course-container {
-  margin-top: 16px;
+        <css>/* ======================================================
+   ROOT
+   ====================================================== */
+.course-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ======================================================
+   HEADER
+   ====================================================== */
+.course-header {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.course-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.course-meta-row {
+  margin-top: 8px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.course-code {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+}
+
+/* Status */
+.course-status {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.course-status.active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.course-status.inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ======================================================
+   COURSE OVERVIEW CARD
+   ====================================================== */
+.course-overview {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+}
+
+/* ======================================================
+   DESCRIPTION
+   ====================================================== */
+.course-description-block {
+  margin-bottom: 26px;
+}
+
+.desc-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.course-description {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #334155;
+  background: #f8fafc;
+  padding: 18px 20px;
+  border-radius: 16px;
+}
+
+/* ======================================================
+   INFO GRID
+   ====================================================== */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.info-item {
+  background: #f9fafb;
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+
+.info-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #64748b;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.info-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.info-chip {
+  display: inline-block;
+  background: #ecfeff;
+  color: #155e75;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+/* ======================================================
+   STATS (RIGHT SIDE)
+   ====================================================== */
+.course-stats {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Header */
-.course-header {
-  padding-bottom: 12px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.course-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: #0f172a;
-}
-
-.course-code {
-  font-size: 13px;
-  font-weight: 500;
-  color: #64748b;
-  margin-left: 6px;
-}
-
-/* Overview */
-.course-overview {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 24px;
-  background: #ffffff;
-  border-radius: 14px;
-  border: 1px solid #e5e7eb;
-  padding: 20px;
-}
-
-/* Info */
-.course-description {
-  font-size: 14px;
-  color: #475569;
-  margin-bottom: 16px;
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-
-.info-label {
-  font-size: 11px;
-  font-weight: 600;
-  color: #64748b;
-  text-transform: uppercase;
-}
-
-.info-value {
-  font-size: 14px;
-  font-weight: 600;
-  color: #111827;
-}
-
-.info-chip {
-  background: #eef2ff;
-  color: #3730a3;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 999px;
-}
-
-/* Stats */
-.course-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
 .stat-card {
-  background: #f8fafc;
-  border-radius: 12px;
-  padding: 18px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  border-radius: 22px;
+  padding: 28px;
   text-align: center;
+  color: #ffffff;
 }
 
 .stat-number {
-  font-size: 36px;
-  font-weight: 800;
-  color: #0f172a;
+  font-size: 42px;
+  font-weight: 900;
 }
 
 .stat-label {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
-  color: #475569;
+  opacity: 0.9;
 }
 
 .stat-sub {
-  font-size: 12px;
-  color: #64748b;
+  font-size: 13px;
+  opacity: 0.75;
 }
 
-/* Buttons */
+/* ======================================================
+   ACTION BUTTONS
+   ====================================================== */
 .stat-actions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 .btn-primary {
-  background: #2563eb;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
   color: #ffffff;
   border: none;
-  border-radius: 10px;
-  padding: 10px;
-  font-weight: 600;
+  border-radius: 16px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(59,130,246,0.45);
+}
+
+.btn-primary:disabled {
+  background: #c7d2fe;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }
 
 .btn-secondary {
-  background: #f59e0b;
-  color: #ffffff;
+  background: linear-gradient(135deg, #facc15, #f59e0b);
+  color: #1f2937;
   border: none;
-  border-radius: 10px;
-  padding: 10px;
-  font-weight: 600;
+  border-radius: 16px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-/* Learners */
-.learners-section h4 {
-  font-weight: 600;
-  margin-bottom: 10px;
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(245,158,11,0.45);
 }
 
-.modern-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.modern-table th {
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #64748b;
-  padding: 12px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.modern-table td {
-  padding: 14px 12px;
-  font-size: 14px;
-  color: #374151;
-}
-
-/* Status chips */
-.status-chip {
-  padding: 4px 12px;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: 999px;
-}
-
-.status-chip.registered {
-  background: #ecfdf5;
-  color: #065f46;
-}
-
-.status-chip.waitlisted {
-  background: #fffbeb;
-  color: #92400e;
-}
-
-/* Empty */
-.empty-state,
-.empty-table {
+/* ======================================================
+   EMPTY STATE
+   ====================================================== */
+.empty-state {
+  background: #f8fafc;
+  border-radius: 22px;
+  padding: 48px 24px;
   text-align: center;
+  font-size: 16px;
   color: #64748b;
-  padding: 24px;
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+@media (max-width: 992px) {
+  .course-overview {
+    grid-template-columns: 1fr;
+  }
 }
 </css>
         <data_table>sp_instance</data_table>
@@ -211,54 +272,44 @@
         <name>Course Details Widget</name>
         <option_schema/>
         <public>false</public>
-        <roles/>
+        <roles>x_1862243_training.training user</roles>
         <script><![CDATA[(function () {
 
   data.course = {};
-  data.registrations = [];
 
-  data.isTrainingUser = gs.hasRole('x_1862243_training.training_user');
-  data.isAdmin = gs.hasRole('x_1862243_training.training_admin');
-  data.isInstructor = gs.hasRole('x_1862243_training.training_instructor');
+data.isTrainingUser = gs.hasRole('x_1862243_training.training user');
+  data.isAdmin = gs.hasRole('x_1862243_training.training admin');
+  data.isInstructor = gs.hasRole('x_1862243_training.training instructor');
 
   var courseGR = new GlideRecord('x_1862243_training_training_course_table');
-  var regGR;
 
   /* =========================
      REGISTER / WAITLIST
      ========================= */
   if (input && input.action === 'register') {
 
-    data.debug = 'REGISTER BLOCK ENTERED';
-
     var courseId = input.course_id;
-    if (!courseId) {
-      data.message = 'Course ID missing';
+    if (!courseId)
       return;
-    }
 
-    if (!data.isTrainingUser) {
-      data.message = 'You do not have permission to register';
+    if (!data.isTrainingUser)
       return;
-    }
 
-    if (!courseGR.get(courseId)) {
-      data.message = 'Course not found';
+    if (!courseGR.get(courseId))
       return;
-    }
 
-    var availableSeats = courseGR.available_seats.nil() ? 0  : parseInt(courseGR.available_seats, 10);
+    var availableSeats = courseGR.available_seats.nil()
+      ? 0
+      : parseInt(courseGR.available_seats, 10);
 
     // Prevent duplicate registration
-    regGR = new GlideRecord('x_1862243_training_training_registration_table');
+    var regGR = new GlideRecord('x_1862243_training_training_registration_table');
     regGR.addQuery('course', courseId);
     regGR.addQuery('learner', gs.getUserID());
     regGR.query();
 
-    if (regGR.next()) {
-      data.message = 'You are already registered for this course.';
+    if (regGR.next())
       return;
-    }
 
     var statusValue = (availableSeats > 0) ? 'registered' : 'waitlisted';
 
@@ -274,7 +325,6 @@
       courseGR.update();
     }
 
-    data.message = 'You are ' + statusValue + ' for this course.';
     return;
   }
 
@@ -291,31 +341,21 @@
   data.course = {
     sys_id: courseGR.getUniqueValue(),
     name: courseGR.getValue('course_name'),
-    code: courseGR.getValue('course_code'),
+    code: courseGR.getValue('course_code'), // ✅ course code included
     description: courseGR.getValue('course_description'),
     instructor: courseGR.getDisplayValue('instructor'),
     duration: courseGR.getValue('duration_hours'),
     category: courseGR.getValue('course_category'),
     maxSeats: parseInt(courseGR.maximum_seats, 10),
-    availableSeats: courseGR.available_seats.nil() ? 0 : parseInt(courseGR.available_seats, 10),
+    availableSeats: courseGR.available_seats.nil()
+      ? 0
+      : parseInt(courseGR.available_seats, 10),
     startDate: courseGR.getValue('course_start_date'),
     endDate: courseGR.getValue('course_end_date'),
     location: courseGR.getValue('location'),
     isActive: courseGR.getValue('is_active')
   };
-
-  regGR = new GlideRecord('x_1862243_training_training_registration_table');
-  regGR.addQuery('course', pageCourseId);
-  regGR.query();
-
-  while (regGR.next()) {
-    data.registrations.push({
-      learner: regGR.getDisplayValue('learner'),
-      status: regGR.getValue('registration_status'),
-      regDate: regGR.getValue('registration_date'),
-      completionDate: regGR.getValue('completion_date')
-    });
-  }
+gs.info('Course Code value = ' + courseGR.getValue('course_code'));
 
 })();
 ]]></script>
@@ -324,36 +364,65 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-01-11 05:43:25</sys_created_on>
         <sys_id>804dacfa839e721084ade7d0deaad3ca</sys_id>
-        <sys_mod_count>66</sys_mod_count>
+        <sys_mod_count>79</sys_mod_count>
         <sys_name>Course Details Widget</sys_name>
         <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
         <sys_policy/>
         <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
         <sys_update_name>sp_widget_804dacfa839e721084ade7d0deaad3ca</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-01-14 07:24:27</sys_updated_on>
+        <sys_updated_on>2026-01-15 09:20:31</sys_updated_on>
         <template><![CDATA[<div class="course-container">
 
   <!-- COURSE HEADER -->
-  <div class="course-header">
-    <div class="course-title">
-      {{data.course.name || 'Select a Course'}}
-      <span class="course-code" ng-if="data.course.code">
-        {{data.course.code}}
-      </span>
-    </div>
+<!-- COURSE HEADER -->
+<div class="course-header">
+
+  <!-- Course Name -->
+  <div class="course-title">
+    {{data.course.name || 'Select a Course'}}
   </div>
+
+  <!-- Meta Row -->
+  <div class="course-meta-row">
+
+    <!-- Course Code -->
+<span class="course-code">
+      Code: {{data.course.code}}
+    </span>
+
+    <!-- Active / Inactive -->
+    <span class="course-status"
+          ng-class="{
+            'active': data.course.isActive == '1' || data.course.isActive == true,
+            'inactive': data.course.isActive == '0'
+          }">
+      {{ (data.course.isActive == '1' || data.course.isActive == true) ? 'Active' : 'Inactive' }}
+    </span>
+
+  </div>
+
+</div>
+
 
   <!-- COURSE OVERVIEW -->
   <div class="course-overview" ng-if="data.course.sys_id">
 
     <!-- LEFT INFO -->
     <div class="course-info">
-      <p class="course-description">
-        {{data.course.description}}
-      </p>
 
+      <!-- Description -->
+<div class="course-description-block">
+  <span class="desc-label">Description</span>
+  <p class="course-description">
+    {{data.course.description || 'No description available for this course.'}}
+  </p>
+</div>
+
+
+      <!-- Info Grid -->
       <div class="info-grid">
+
         <div class="info-item">
           <span class="info-label">Instructor</span>
           <span class="info-value">{{data.course.instructor}}</span>
@@ -373,11 +442,25 @@
           <span class="info-label">Duration</span>
           <span class="info-value">{{data.course.duration}} hours</span>
         </div>
+
+        <!-- Start Date -->
+        <div class="info-item">
+          <span class="info-label">Start Date</span>
+          <span class="info-value">{{data.course.startDate}}</span>
+        </div>
+
+        <!-- End Date -->
+        <div class="info-item">
+          <span class="info-label">End Date</span>
+          <span class="info-value">{{data.course.endDate}}</span>
+        </div>
+
       </div>
     </div>
 
     <!-- RIGHT STATS -->
     <div class="course-stats">
+
       <div class="stat-card">
         <div class="stat-number">{{data.course.availableSeats}}</div>
         <div class="stat-label">Seats Available</div>
@@ -385,6 +468,7 @@
       </div>
 
       <div class="stat-actions" ng-if="data.isTrainingUser">
+
         <button class="btn-primary"
                 ng-click="goToRegistration()"
                 ng-disabled="data.course.availableSeats <= 0">
@@ -396,6 +480,7 @@
                 ng-click="goToWaitlist()">
           Join Waitlist
         </button>
+
       </div>
     </div>
 
@@ -406,45 +491,18 @@
     Select a course from the list to view details.
   </div>
 
-  <!-- LEARNERS -->
-  <div class="learners-section">
-    <h4>Registered Learners</h4>
-
-    <table class="modern-table">
-      <thead>
-        <tr>
-          <th>Learner</th>
-          <th>Status</th>
-          <th>Registered</th>
-          <th>Completed</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="r in data.registrations">
-          <td>{{r.learner}}</td>
-          <td>
-            <span class="status-chip"
-                  ng-class="{
-                    'registered': r.status === 'registered',
-                    'waitlisted': r.status === 'waitlisted'
-                  }">
-              {{r.status}}
-            </span>
-          </td>
-          <td>{{r.regDate}}</td>
-          <td>{{r.completionDate || '—'}}</td>
-        </tr>
-
-        <tr ng-if="data.registrations.length === 0">
-          <td colspan="4" class="empty-table">
-            No learners have registered yet.
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
 </div>
 ]]></template>
     </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>804dacfa839e721084ade7d0deaad3ca</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 08:49:52</sys_created_on>
+        <sys_id>9a4ef10c83e23a1084ade7d0deaad3e2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-15 08:49:52</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
 </record_update>

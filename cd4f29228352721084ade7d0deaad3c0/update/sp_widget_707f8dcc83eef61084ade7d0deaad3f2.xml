@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($scope) {
+    // no logic here
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.user-dashboard-header {
+  margin-bottom: 28px;
+}
+
+.user-dashboard-header h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.user-dashboard-header .welcome {
+  font-size: 15px;
+  color: #475569;
+  margin-bottom: 2px;
+}
+
+.user-dashboard-header .greeting {
+  font-size: 14px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sun-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #facc15, #f59e0b);
+  box-shadow: 0 0 10px rgba(250,204,21,.6);
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>instructor_dashboard_header</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Instructor Dashboard Header</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+    data.userName = gs.getUserDisplayName();
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 05:25:14</sys_created_on>
+        <sys_id>707f8dcc83eef61084ade7d0deaad3f2</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Instructor Dashboard Header</sys_name>
+        <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
+        <sys_update_name>sp_widget_707f8dcc83eef61084ade7d0deaad3f2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-15 06:40:57</sys_updated_on>
+        <template><![CDATA[<div class="user-dashboard-header">
+  <h1>Instructor Dashboard</h1>
+  <p class="welcome">Welcome back</p>
+  <p class="greeting">
+    Good morning, {{data.userName}}
+    <span class="sun-dot"></span>
+  </p>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>
