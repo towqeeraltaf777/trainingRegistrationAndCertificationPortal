@@ -1,53 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller = function ($scope) {
-    // No client logic needed
-};
-]]></client_script>
+        <client_script><![CDATA[api.controller = function($scope, $interval) {
+  var c = this;
+
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours();
+    
+    // 1. Greeting & Classes
+    if (hours >= 5 && hours < 12) {
+      c.greeting = "Good morning";
+      c.timeClass = "morning-icon";
+    } else if (hours >= 12 && hours < 17) {
+      c.greeting = "Good afternoon";
+      c.timeClass = "afternoon-icon";
+    } else {
+      c.greeting = "Good evening";
+      c.timeClass = "evening-icon";
+    }
+
+    // 2. Formatting Time
+    c.displayTime = now.toLocaleTimeString([], { 
+      hour: '2-digit', 
+      minute: '2-digit', 
+      hour12: true 
+    });
+
+    // 3. Formatting Date
+    c.todayDate = now.toLocaleDateString([], { 
+      weekday: 'long', 
+      month: 'short', 
+      day: 'numeric' 
+    });
+  }
+
+  updateClock();
+  $interval(updateClock, 30000); 
+};]]></client_script>
         <controller_as>c</controller_as>
-        <css>.admin-welcome {
-  margin-bottom: 24px;
+        <css>.admin-container {
+  padding: 10px 0;
 }
 
-/* Main title – BIG &amp; STRONG */
+.hero-card {
+  background: #ffffff; /* Clean white background */
+  border-radius: 12px;
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-left: 6px solid #4f46e5; /* Modern accent stripe */
+}
+
 .dashboard-title {
-  font-size: 28px;          /* 🔥 bigger */
-  font-weight: 800;         /* 🔥 stronger */
-  color: #0f172a;
-  margin-bottom: 6px;
-  line-height: 1.2;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #6366f1;
+  letter-spacing: 1.5px;
+  margin: 0;
 }
 
-/* Secondary line */
 .welcome-text {
-  font-size: 16px;          /* 🔥 bigger */
-  font-weight: 500;
-  color: #475569;
-  margin-bottom: 4px;
+  font-size: 16px;
+  color: #71717a;
+  margin: 5px 0 0 0;
 }
 
-/* Greeting line */
 .greeting {
-  font-size: 15px;          /* 🔥 slightly bigger */
-  font-weight: 500;
-  color: #64748b;
+  font-size: 32px;
+  font-weight: 800;
+  color: #18181b;
+  margin: 0;
+}
+
+/* Right Side Styling */
+.status-wrapper {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 20px;
 }
 
-/* Sunlight accent */
-.sun-accent {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #facc15, #f59e0b);
-  box-shadow:
-    0 0 10px rgba(250, 204, 21, 0.6),
-    0 0 20px rgba(250, 204, 21, 0.35);
+.time-display {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
 }
-</css>
+
+.digital-clock {
+  font-size: 24px;
+  font-weight: 700;
+  color: #18181b;
+}
+
+.date-today {
+  font-size: 14px;
+  color: #a1a1aa;
+}
+
+/* Dynamic Icons */
+.status-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+}
+
+.morning-icon { 
+  background: #fef3c7; 
+  border: 2px solid #fbbf24;
+  /* Add a sun-like inner glow */
+  box-shadow: inset 0 0 10px #fbbf24;
+}
+
+.afternoon-icon { 
+  background: #ffedd5; 
+  border: 2px solid #f97316;
+}
+
+.evening-icon { 
+  background: #e0e7ff; 
+  border: 2px solid #6366f1;
+}</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -61,34 +137,43 @@
         <option_schema/>
         <public>false</public>
         <roles>x_1862243_training.training admin</roles>
-        <script><![CDATA[(function () {
+        <script><![CDATA[(function() {
     data.userName = gs.getUserDisplayName();
-})();
-]]></script>
+})();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-01-14 15:48:43</sys_created_on>
         <sys_id>0494d2778392f61084ade7d0deaad3b4</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_name>Admin Dashboard Header</sys_name>
         <sys_package display_value="Training Registration and Certification Portal" source="x_1862243_training">cd4f29228352721084ade7d0deaad3c0</sys_package>
         <sys_policy/>
         <sys_scope display_value="Training Registration and Certification Portal">cd4f29228352721084ade7d0deaad3c0</sys_scope>
         <sys_update_name>sp_widget_0494d2778392f61084ade7d0deaad3b4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-01-15 08:40:57</sys_updated_on>
-        <template><![CDATA[<div class="admin-welcome">
-  <h1 class="dashboard-title">Admin Dashboard</h1>
-
-  <p class="welcome-text">Welcome back</p>
-
-  <p class="greeting">
-    Good morning, {{data.userName}}
-    <span class="sun-accent"></span>
-  </p>
-</div>
-]]></template>
+        <sys_updated_on>2026-01-18 03:44:18</sys_updated_on>
+        <template><![CDATA[<div class="admin-container">
+  <div class="hero-card">
+    <div class="content-left">
+      <h1 class="dashboard-title">Admin Dashboard</h1>
+      <p class="welcome-text">Welcome back,</p>
+      <p class="greeting">
+        {{c.greeting}}, {{data.userName}}
+      </p>
+    </div>
+    
+    <div class="content-right text-right">
+      <div class="status-wrapper">
+        <div class="status-icon" ng-class="c.timeClass"></div>
+        <div class="time-display">
+          <span class="digital-clock">{{c.displayTime}}</span>
+          <span class="date-today">{{c.todayDate}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
     </sp_widget>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>0494d2778392f61084ade7d0deaad3b4</id>
